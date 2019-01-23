@@ -9,11 +9,11 @@ import {Div} from './imports/Div';
 import {Title,Divider,Text} from './imports/Title';
 import Menu from './imports/Menu';
 import {Item} from './imports/Item';
-import Icon from './imports/Icon';
+import {Icon} from './imports/Icon';
 import Drawer, {ToogleDrawer} from './imports/Drawer';
 import Dialog from './imports/Dialog';
 import {Image} from './imports/Image';
 import {Card} from "./imports/Card";
-
-export {Dialog,Divider,Text,Card,Drawer,ToogleDrawer,Input,Image,
+import {Simonstrap} from "./imports/Simonstrap";
+export {Simonstrap,Dialog,Divider,Text,Card,Drawer,ToogleDrawer,Input,Image,
   Button,Title,Icon,Body,Footer,Item,ThemeProvider,Light,Div,Header,Menu}

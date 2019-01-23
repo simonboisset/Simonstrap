@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
+import {basic} from "../themes/basic";
 const Background = styled.div`
   position : fixed;
   top : 0;
@@ -31,6 +32,7 @@ const CloseTriger = styled.div`
     opacity : 1;
   }
 `;
+CloseTriger.defaultProps = {theme: basic};
 const DrawerBox = styled.div`
   position : fixed;
   top:100%;
@@ -43,6 +45,7 @@ const DrawerBox = styled.div`
     top : 30%;
   }
 `;
+DrawerBox.defaultProps = {theme: basic};
 export default class Dialog extends Component {
   renderClassName=()=>{
     if (this.props.open) {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-
-const Button = styled.button`
+import {basic} from "../themes/basic";
+export const Button = styled.button`
   margin:10px;
   width: ${props => props.width ? props.width : props.theme.button.width}px;
   height:${props => props.height ? props.height : props.theme.button.height}px;
@@ -31,16 +31,4 @@ const Button = styled.button`
     outline: none;
   }
 `;
-Button.defaultProps = {
-  theme: {
-    button:{
-      height:36,
-      width:150
-    },
-    color : {
-      primary : "rgb(134, 223, 195)",
-      primaryLight:"rgb(195, 239, 218)"
-    },
-  }
-}
-export {Button};
+Button.defaultProps = {theme: basic};

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import {basic} from "../themes/basic";
 export const Footer = styled.footer`
   display: flex;
   flex-direction: row;
@@ -10,3 +10,4 @@ export const Footer = styled.footer`
   width: 100%;
   background-color: ${props=>props.theme.color.primary};
 `;
+Footer.defaultProps = {theme: basic};

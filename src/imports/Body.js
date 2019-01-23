@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {basic} from "../themes/basic";
 export const Body = styled.div`
   min-height : ${props => window.innerHeight-props.theme.header.height-props.theme.footer.height}px;
   width: 100%;
@@ -13,3 +14,4 @@ export const Body = styled.div`
     return "0";
   }};
 `;
+Body.defaultProps = {theme: basic};

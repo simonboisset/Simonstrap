@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {basic} from "../themes/basic";
 import React from 'react';
 import {Button} from './Button';
 const InputText = styled.input`
@@ -13,6 +14,7 @@ const InputText = styled.input`
     outline: none;
   }
 `;
+InputText.defaultProps = {theme: basic};
 const InputFile = styled.input``;
 export default class Input extends React.Component {
   constructor(){

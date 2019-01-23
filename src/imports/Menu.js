@@ -1,6 +1,6 @@
 import styled, {withTheme} from "styled-components";
 import React from 'react';
-
+import {basic} from "../themes/basic";
 const MenuBox = styled.div`
   margin: ${props => props.margin ? props.margin : '0'};
   height:${props =>props.height ? props.height+"px" : props.theme.header.height+"px"};
@@ -14,6 +14,7 @@ const MenuBox = styled.div`
   }
   ${props => props.button ? "&:active{background-color:"+props.theme.menu.clic+";}" : null}
 `;
+MenuBox.defaultProps = {theme: basic};
 const ItemBox = styled.div`
   position:absolute;
   ${props=>props.vertical? null : "&.right{right:0px;}"}
@@ -40,6 +41,7 @@ const ItemBox = styled.div`
     animation: ${props=>props.theme.menu.item.transition(props.vertical,props.left,true)} ${props =>props.theme.menu.item.time} ease 1;
   }
 `;
+ItemBox.defaultProps = {theme: basic};
 class Menu extends React.Component {
   constructor(){
     super();
@@ -53,7 +55,7 @@ class Menu extends React.Component {
   }
   componentDidMount(){
     // console.log(this.refContainer.current.getBoundingClientRect());
-    if (window.innerWidth-this.refContainer.current.getBoundingClientRect().left<this.props.theme.menu.item.width) {
+    if (window.innerWidth-this.refContainer.current.getBoundingClientRect().left<150) {
       this.setState({class:"right"});
     }
   }

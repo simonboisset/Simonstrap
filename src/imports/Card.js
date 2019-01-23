@@ -1,6 +1,6 @@
 import styled from "styled-components";
-
-const Card = styled.div`
+import {basic} from "../themes/basic";
+export const Card = styled.div`
   margin:10px;
   width: ${props => props.width ? props.width : "auto"}px;
   height:${props => props.height ? props.height : "auto"}px;
@@ -13,5 +13,4 @@ const Card = styled.div`
   align-items:${props => props.align ? props.align : 'flex-start'};
   box-shadow: ${props => props.shadow ? '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)' : props.theme.header.elevation};
 `;
-
-export {Card}
+Card.defaultProps = {theme: basic};

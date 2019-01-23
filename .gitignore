@@ -1,9 +1,7 @@
 **/node_modules
-**/build
-**/imports
-**/themes
-**/secret
-# misc
+/build
+/imports
+/themes
 .DS_Store
 .env.local
 .env.development.local

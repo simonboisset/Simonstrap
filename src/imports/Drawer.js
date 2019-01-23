@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
+import {basic} from "../themes/basic";
 import EventEmitter from 'events';
 const Background = styled.div`
   position : fixed;
@@ -25,6 +26,7 @@ const CloseTriger = styled.div`
     opacity : 1;
   }
 `;
+CloseTriger.defaultProps = {theme: basic};
 const DrawerBox = styled.div`
   position : fixed;
   top :0;
@@ -38,6 +40,7 @@ const DrawerBox = styled.div`
     left : 0;
   }
 `;
+DrawerBox.defaultProps = {theme: basic};
 export default class Drawer extends Component {
   constructor(){
     super();
