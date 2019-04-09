@@ -1,34 +1,61 @@
-import styled from "styled-components";
-import {basic} from "../themes/basic";
-export const Button = styled.button`
-  margin:10px;
-  width: ${props => props.width ? props.width : props.theme.button.width}px;
-  height:${props => props.height ? props.height : props.theme.button.height}px;
-  color:white;
-  border: none;
-  border-radius:${props => props.rounded ? "18px" : "3px"};
-  background-color:
-  ${(props)=>{
-    switch (props.color) {
-      case "primary":{
-        return props.theme.color.primary;
-      }
+import React from 'react';
+import PropTypes from 'prop-types';
 
-
-      default:{
-        return props.theme.color.primary;
-      }
-
+class Button extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      click:false,
+      hover:false
     }
-  }};
-  &:hover{
-    background-color:${props => props.theme.color.primaryLight};
   }
-  &:active{
-    background-color:${props => props.theme.color.primary};
+  render() {
+    let backgroundColor="";
+    if(this.state.click){
+      backgroundColor = "red"
+    }
+    else{
+      if (this.state.hover) {
+        backgroundColor = "blue"
+      }
+      else{
+        backgroundColor = "green"
+      }
+    }
+    
+    const style={
+      margin:"10px",
+      width:this.props.width,
+      height:this.props.height,
+      color:"white",
+      border: "none",
+      borderRadius:this.props.rounded ? "18px" : "3px",
+      backgroundColor:backgroundColor,
+      outline: "none",
+      transition: "background-color 300ms"
+    }
+    return (
+      <button 
+        style={style}
+        onMouseEnter={()=>this.setState({hover:true})}
+        onMouseLeave={()=>this.setState({hover:false,click:false})}
+        onMouseUp={()=>this.setState({click:false})}
+        onMouseDown={()=>this.setState({click:true})}
+      >
+        {this.props.children}
+      </button>
+    );
   }
-  &:focus{
-    outline: none;
-  }
-`;
-Button.defaultProps = {theme: basic};
+}
+Button.defaultProps = {
+    width: 'auto',
+    height:'auto',
+    backgroundColor:"primary"
+};
+Button.propTypes = {
+    width: PropTypes.string,
+    height:PropTypes.string,
+    backgroundColor:PropTypes.string
+};
+
+export default Button;

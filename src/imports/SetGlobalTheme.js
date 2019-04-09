@@ -1,6 +1,6 @@
 import {createGlobalStyle} from "styled-components";
 import {basic} from "../themes/basic";
-export const Simonstrap = createGlobalStyle`
+export const SetGlobalTheme = createGlobalStyle`
   @font-face {
     font-family : Icons;
     src: url(${props => props.theme.font.icon});
@@ -13,4 +13,4 @@ export const Simonstrap = createGlobalStyle`
     font-family: Text;
   }
 `;
-Simonstrap.defaultProps = {theme: basic};
+SetGlobalTheme.defaultProps = {theme: basic};

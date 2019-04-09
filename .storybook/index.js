@@ -2,11 +2,16 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 // import { GlobalStyle,Div,Body,Image,Icon,Button,Card,Dialog,Drawer,
 //   Footer,Header,Input,Item,Menu,Title,Text } from '../';
-import { Simonstrap,Div,Body,Image,Icon,Button,Card,Dialog,Drawer,
+import { SetGlobalTheme,Div,Body,Image,Icon,Button,Card,Dialog,Drawer,
   Footer,Header,Input,Item,Menu,Title,Text } from '../src';
-storiesOf('Complete Page', module)
-  .add('with text', () => (
+storiesOf('Page', module)
+  .add('Exemple 1', () => (
     <Button>Hello Button</Button>
+  ))
+;
+storiesOf('Body', module)
+  .add('Simple Body', () => (
+    <Body></Body>
   ))
 ;
 storiesOf('Button', module)
@@ -40,7 +45,7 @@ storiesOf('Header', module)
   ))
   .add('with Title', () => (
     <div>
-    <Header><Simonstrap/>
+    <Header><SetGlobalTheme/>
       <Title>Title</Title>
       <Div row>
         <Menu label={<Icon>delete</Icon>}>
