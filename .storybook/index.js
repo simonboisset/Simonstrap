@@ -31,7 +31,7 @@ storiesOf('Dialog', module)
 ;
 storiesOf('Div', module)
   .add('with text', () => (
-    <Div>Hello Button</Div>
+    <Div>Hello Div</Div>
   ))
 ;
 storiesOf('Drawer', module)

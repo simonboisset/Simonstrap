@@ -1,16 +1,37 @@
-import styled from "styled-components";
-import {basic} from "../themes/basic";
-export const Header = styled.header`
-  display : flex;
-  position :relative;
-  flex-direction : row;
-  justify-content : space-between;
-  align-items :center;
-  color : ${props => props.theme.header.textColor};
-  height : ${props => props.height ? props.height : props.theme.header.height}px;
-  width : 100%;
-  z-index :990;
-  background-color : ${props => props.color ? props.color : props.theme.header.color};
-  box-shadow : ${props => props.shadow ? '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)' : props.theme.header.elevation};
-`;
-Header.defaultProps = {theme: basic};
+import React from 'react';
+import PropTypes from 'prop-types';
+class Header extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      click:false,
+      hover:false
+    }
+  }
+  render() {
+    const style={
+      display : "flex",
+      position :"relative",
+      flexDirection : "row",
+      justifyContent : "space-between",
+      alignItems :"center",
+      color : "white",
+      height : this.props.height,
+      width : "100%",
+      zIndex :"990",
+      backgroundColor : this.props.background,
+      boxShadow :'0 3px 6px rgba(0,0,0,0.16)'
+    }
+    return (<div style={style}>{this.props.children}</div>);
+  }
+}
+Header.defaultProps = {
+    height:"50px",
+    background:"orange"
+};
+Header.propTypes = {
+    height:PropTypes.string,
+    background:PropTypes.string
+};
+
+export default Header;
