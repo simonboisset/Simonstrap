@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { SetGlobalTheme,Div,Body,Image,Icon,Button,Card,Dialog,Drawer,
   Footer,Header,Input,Item,Menu,Title,Text } from '../src';
-import {DialogStory} from './stories';
+import {DialogStory,DrawerStory,ImageStory} from './stories';
 storiesOf('Page', module)
   .add('Exemple 1', () => (
     <Button>Hello Button</Button>
@@ -35,7 +35,7 @@ storiesOf('Div', module)
 ;
 storiesOf('Drawer', module)
   .add('with text', () => (
-    <Drawer>Hello Button</Drawer>
+    <DrawerStory/>
   ))
 ;
 storiesOf('Header', module)
@@ -69,12 +69,15 @@ storiesOf('Icon', module)
 ;
 storiesOf('Image', module)
   .add('with text', () => (
-    <Image>Hello Button</Image>
+    <ImageStory/>
   ))
 ;
 storiesOf('Input', module)
   .add('with text', () => (
-    <Input>Hello Button</Input>
+    <Input/>
+  ))
+  .add('with File', () => (
+    <Input type="file" label="Load File"/>
   ))
 ;
 storiesOf('Menu', module)

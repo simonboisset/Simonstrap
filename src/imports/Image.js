@@ -1,12 +1,34 @@
-import styled from "styled-components";
-export const Image = styled.div`
-  width: ${props => props.width ? props.width : '100px'};
-  height: ${props => props.height ? props.height : '100px'};
-  overflow: hidden;
-  border-radius:${props => props.rounded ? '50%' : '2px'};
-  box-shadow:0 1px 4px rgba(0, 0, 0, .6);
-  border-width:0;
-  outline:none;
-  background-image: ${props => props.src ? 'url('+props.src+')' : 'none'};
-  background-size: ${props => props.src ? 'cover' : 'none'};
-`;
+import React from 'react';
+import PropTypes from 'prop-types';
+class Image extends React.Component {
+  render() {
+    let borderRadius;
+    if (this.props.rounded) {
+      borderRadius="18px";
+    }
+    else{
+      borderRadius="3px";
+    }
+    const style={
+      width:this.props.width,
+      height: this.props.height,
+      overflow: "hidden",
+      borderRadius:borderRadius,
+      boxShadow:"0 1px 4px rgba(0, 0, 0, .6)",
+      borderWidth:"0",
+      outline:"none",
+      backgroundSize: 'cover'
+    }
+    return (<img style={style} src={this.props.src}/>);
+  }
+}
+Image.defaultProps = {
+    height:"150px",
+    width:"150px",
+};
+Image.propTypes = {
+    height:PropTypes.string,
+    width:PropTypes.string
+};
+
+export default Image;

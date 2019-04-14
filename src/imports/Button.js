@@ -41,6 +41,7 @@ class Button extends React.Component {
         onMouseLeave={()=>this.setState({hover:false,click:false})}
         onMouseUp={()=>this.setState({click:false})}
         onMouseDown={()=>this.setState({click:true})}
+        onClick={this.props.onClick}
       >
         {this.props.children}
       </button>

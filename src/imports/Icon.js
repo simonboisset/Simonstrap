@@ -1,6 +1,5 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import "./icon.css";
 class Icon extends React.Component {
   render() {
     const style={

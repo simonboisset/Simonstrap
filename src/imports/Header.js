@@ -1,13 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 class Header extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      click:false,
-      hover:false
-    }
-  }
   render() {
     const style={
       display : "flex",

@@ -1,6 +1,6 @@
 import React from 'react';
-import {Dialog,Button} from '../../src';
-class DialogStory extends React.Component {
+import {Drawer,Button} from '../../src';
+class DrawerStory extends React.Component {
     constructor(){
         super();
         this.state = {
@@ -11,11 +11,11 @@ class DialogStory extends React.Component {
         return(
         <div>
             <Button onClick={()=>this.setState({active : !this.state.active})}>Toogle</Button>
-            <Dialog onClose={()=>this.setState({active : false})} active={this.state.active}>
+            <Drawer onClose={()=>this.setState({active : false})} active={this.state.active}>
                 Coucou
-            </Dialog>
+            </Drawer>
         </div>
         );
     }
 }
-export default DialogStory;
+export default DrawerStory;
