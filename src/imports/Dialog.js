@@ -2,31 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 class Dialog extends React.Component {
   render() {
-    let className;
-    if (this.props.open) {
-      className= "active";
-    }else {
-      className= "hidden";
+    let visibility,opacity,top;
+    if (this.props.active) {
+      visibility= "visible";
+      opacity="1";
+      top="30%";
+    }
+    else {
+      visibility= "hidden";
+      opacity="0";
+      top="100%";
     }
     const style = {
       background:{
-        position : fixed;
-        top : 0;
-        left : 0;
-        right : 0;
-        bottom : 0;
-        display: flex;
-        align-items : center;
-        justify-content : center;
-        background-color : rgba(0,0,0,0.4);
-        z-index : 997;
-        visibility : hidden;
-        transition: visibility ${props =>props.theme.menu.item.time} linear;
-        &.active{
-          visibility : visible;
-        }
+        position : "fixed",
+        top : "0",
+        left : "0",
+        right : "0",
+        bottom : "0",
+        display: "flex",
+        alignItems : "center",
+        justifyContent : "center",
+        backgroundColor : "rgba(0,0,0,0.4)",
+        zIndex : "997",
+        visibility : visibility,
+        transition: `visibility ${this.props.delay} linear`,
       },
-      triger:{
+      trigger:{
         position : "fixed",
         top :"0",
         left :"0",
@@ -34,53 +36,34 @@ class Dialog extends React.Component {
         bottom :"0",
         backgroundColor :"rgba(0,0,0,0.4)",
         zIndex :"998",
-        opacity : "0,"
-        transition: `opacity ${this.props.delay}` linear,
-        &.active{
-          opacity : 1;
-        }
+        opacity : opacity,
+        transition: `opacity ${this.props.delay} linear`,
       },
       box:{
-        position : fixed;
-        top:100%;
-        width :100px;
-        height :100px;
-        background-color :white;
-        z-index :999;
-        transition : top ${props =>props.theme.menu.item.time} linear;
-        &.active{
-          top : 30%;
-        }
+        position : "fixed",
+        top:top,
+        width :"100px",
+        height :"100px",
+        backgroundColor :"white",
+        zIndex :"999",
+        transition : `top ${this.props.delay} linear`,
       }
     }
     return(
-      <Background style={style.background} className={className}>
-        <CloseTriger style={style.triger} className={className} onClick={this.props.onClose}/>
-        <DrawerBox style={style.box} className={className}>{this.props.children}</DrawerBox>
-      </Background>
+      <div style={style.background}>
+        <div style={style.trigger} onClick={this.props.onClose}/>
+        <div style={style.box}>{this.props.children}</div>
+      </div>
     );
   }
 }
 Dialog.defaultProps = {
-  width: "auto",
-  height:"auto",
-  margin:"0",
-  padding:"0",
-  justify:"flex-start",
-  align:"flex-start",
-  background:"none"
+  delay: "300ms"
 };
 Dialog.propTypes = {
-  width: PropTypes.string,
-  height:PropTypes.string,
-  margin:PropTypes.string,
-  padding:PropTypes.string,
-  justify:PropTypes.string,
-  align:PropTypes.string,
-  background:PropTypes.string,
-  container:PropTypes.string,
-  image:PropTypes.string,
-  wrap:PropTypes.string,
+  delay: PropTypes.string,
+  active: PropTypes.bool,
+  onClose: PropTypes.func,
 };
 
 export default Dialog;

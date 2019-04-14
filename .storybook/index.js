@@ -1,9 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-// import { GlobalStyle,Div,Body,Image,Icon,Button,Card,Dialog,Drawer,
-//   Footer,Header,Input,Item,Menu,Title,Text } from '../';
 import { SetGlobalTheme,Div,Body,Image,Icon,Button,Card,Dialog,Drawer,
   Footer,Header,Input,Item,Menu,Title,Text } from '../src';
+import {DialogStory} from './stories';
 storiesOf('Page', module)
   .add('Exemple 1', () => (
     <Button>Hello Button</Button>
@@ -26,7 +25,7 @@ storiesOf('Card', module)
 ;
 storiesOf('Dialog', module)
   .add('with text', () => (
-    <Dialog>Hello Button</Dialog>
+    <DialogStory/>
   ))
 ;
 storiesOf('Div', module)
@@ -65,7 +64,7 @@ storiesOf('Header', module)
 ;
 storiesOf('Icon', module)
   .add('with text', () => (
-    <Icon>Hello Button</Icon>
+    <Icon>home</Icon>
   ))
 ;
 storiesOf('Image', module)

@@ -1,20 +1,25 @@
-import styled from "styled-components";
-import React, { Component } from 'react';
-export const Icon = styled.i`
-  margin : 0;
-  font-family: Icons;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
-`;
+import React from 'react';
+// import PropTypes from 'prop-types';
+import "./icon.css";
+class Icon extends React.Component {
+  render() {
+    const style={
+      margin : "0",
+      fontFamily: "Icons",
+      fontWeight: "normal",
+      fontStyle: "normal",
+      fontSize: "24px",
+      display: "inline-block",
+      lineHeight: "1",
+      textTransform: "none",
+      letterSpacing: "normal",
+      wordWrap: "normal",
+      whiteSpace: "nowrap",
+      direction: "ltr",
+      textRendering: "optimizeLegibility",
+      fontFeatureSettings: 'liga',
+    }
+    return (<i style={style}>{this.props.children}</i>);
+  }
+}
+export default Icon;
