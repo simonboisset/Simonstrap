@@ -14,8 +14,11 @@ storiesOf('Body', module)
   ))
 ;
 storiesOf('Button', module)
-  .add('with text', () => (
-    <Button>Hello Button</Button>
+  .add('Default', () => (
+    <Button>Button</Button>
+  ))
+  .add('Rounded', () => (
+    <Button rounded>Button</Button>
   ))
 ;
 storiesOf('Card', module)

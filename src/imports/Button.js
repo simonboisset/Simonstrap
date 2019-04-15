@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import {basic} from "../themes/basic";
 class Button extends React.Component {
   constructor(){
     super();
@@ -12,14 +12,14 @@ class Button extends React.Component {
   render() {
     let backgroundColor="";
     if(this.state.click){
-      backgroundColor = "red"
+      backgroundColor = basic.color.primary.light
     }
     else{
       if (this.state.hover) {
-        backgroundColor = "blue"
+        backgroundColor = basic.color.primary.regular
       }
       else{
-        backgroundColor = "green"
+        backgroundColor = basic.color.primary.dark
       }
     }
     
@@ -29,7 +29,7 @@ class Button extends React.Component {
       height:this.props.height,
       color:"white",
       border: "none",
-      borderRadius:this.props.rounded ? "18px" : "3px",
+      borderRadius:this.props.rounded ? this.props.theme.borderRadius.rounded : this.props.theme.borderRadius.default,
       backgroundColor:backgroundColor,
       outline: "none",
       transition: "background-color 300ms"
@@ -49,14 +49,18 @@ class Button extends React.Component {
   }
 }
 Button.defaultProps = {
-    width: 'auto',
-    height:'auto',
-    backgroundColor:"primary"
+    width: '130px',
+    height:'25px',
+    backgroundColor:"primary",
+    theme:basic
 };
 Button.propTypes = {
     width: PropTypes.string,
     height:PropTypes.string,
-    backgroundColor:PropTypes.string
+    backgroundColor:PropTypes.string,
+    onClick:PropTypes.func,
+    children:PropTypes.string,
+    theme:PropTypes.object,
 };
 
 export default Button;
