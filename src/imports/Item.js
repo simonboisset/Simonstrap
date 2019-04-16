@@ -1,19 +1,65 @@
-// import styled from "styled-components";
-// import {basic} from "../themes/basic";
-// export const Item = styled.div`
-//   margin: ${props => props.margin ? props.margin : '0'};
-//   height:${props =>props.height ? props.height : props.theme.header.height}px;
-//   display: flex;
-//   padding:${props => props.padding ? props.padding : props.theme.menu.padding};
-//   align-items:center;
-//   &:hover{
-//    cursor: default;
-//    background-color:${props => props.hover ? props.hover : props.theme.menu.hover.background};
-//    color:${props => props.theme.menu.hover.text};
-//   }
-//   &:active{
-//    background-color:${props =>props.theme.menu.clic.background};
-//    color:${props => props.theme.menu.clic.text};
-//   }
-// `;
-// Item.defaultProps = {theme: basic};
+import React from 'react';
+import PropTypes from 'prop-types';
+import { basic } from "../themes/basic";
+class Item extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      click: false,
+      hover: false
+    }
+  }
+  render() {
+    let color;
+    if (this.state.click) {
+      color = this.props.theme.color.default.light;
+    }
+    else {
+      if (this.state.hover) {
+        color = this.props.theme.color.default.regular;
+      }
+      else {
+        color = this.props.theme.color.default.light;
+      }
+    }
+    const style = {
+        margin: "0",
+        height:this.props.height,
+        display: "flex",
+        padding:this.props.padding,
+        alignItems:"center",
+        cursor: "default",
+        color:color
+    }
+    return (
+      <div
+        style={style}
+        onMouseEnter={() => this.setState({ hover: true })}
+        onMouseLeave={() => this.setState({ hover: false, click: false })}
+        onMouseUp={() => this.setState({ click: false })}
+        onMouseDown={() => this.setState({ click: true })}
+        onClick={this.props.onClick}
+      >
+        {this.props.children}
+      </div>
+    );
+  }
+}
+Item.defaultProps = {
+  width: '130px',
+  height: '25px',
+  color: "primary",
+  theme: basic,
+  elevation: 2
+};
+Item.propTypes = {
+  width: PropTypes.string,
+  height: PropTypes.string,
+  color: PropTypes.string,
+  onClick: PropTypes.func,
+  children: PropTypes.string,
+  theme: PropTypes.object,
+  elevation: PropTypes.number
+};
+
+export default Button;
