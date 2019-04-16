@@ -59,7 +59,6 @@ Item.propTypes = {
   onClick: PropTypes.func,
   children: PropTypes.string,
   theme: PropTypes.object,
-  elevation: PropTypes.number
 };
 
-export default Button;
+export default Item;

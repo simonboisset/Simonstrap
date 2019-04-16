@@ -7,55 +7,29 @@ class Menu extends React.Component {
         this.refContainer = React.createRef();
         this.state = {
             click: false,
-            active: false,
-            timer: Date.now()
+            hover: false,
         }
     }
-    componentDidMount() {
-        if (window.innerWidth - this.refContainer.current.getBoundingClientRect().left < 150) {
-            this.setState({ class: "right" });
-        }
-    }
-    //   toogleMenu = (hover) => {
-    //     let timer = Date.now();
-    //     this.setState({timer})
-    //     setTimeout(()=>{
-    //       if (this.state.timer===timer) {
-    //         if (hover) {
-    //           this.setState({display:true});
-    //           setTimeout(()=>{
-    //             this.setState({active:"active"});
-    //           },50)
-    //         }else {
-    //           this.setState({active:"passive"});
-    //           setTimeout(()=>{
-    //             this.setState({display:false,active:"null"});
-    //           },300);
-    //         }
-    //       }
-    //     },100)
-    //   }
+    // componentDidMount() {
+    //     if (window.innerWidth - this.refContainer.current.getBoundingClientRect().left < 150) {
+    //         this.setState({ class: "right" });
+    //     }
+    // }
     render() {
-        let backgroundColor, elevation;
-        if (this.state.click) {
-            // backgroundColor = this.props.theme.color.primary.light;
-            elevation = this.props.elevation;
+        let right, opacity, marginTop, marginLeft, visibility;
+        if (this.state.hover) {
+            visibility = "visible";
+            right = "auto";
+            opacity = "1";
+            marginTop = "0";
+            marginLeft = "0";
         }
         else {
-            if (this.state.hover) {
-                // backgroundColor = this.props.theme.color.primary.light;
-                elevation = this.props.elevation + 1;
-            }
-            else {
-                // backgroundColor = this.props.theme.color.primary.regular;
-                elevation = this.props.elevation;
-            }
-        }
-        if (this.props.theme.color.hasOwnProperty(this.props.color)) {
-            backgroundColor = this.props.theme.color[this.props.color].regular;
-        }
-        else {
-            backgroundColor = this.props.color;
+            visibility = "hidden";
+            right = "auto";
+            opacity = "0";
+            marginTop = "25px";
+            marginLeft = "25px";
         }
         const style = {
             menuBox: {
@@ -65,19 +39,23 @@ class Menu extends React.Component {
                 padding: this.props.padding,
                 alignItems: "center",
                 cursor: "default",
-                backgroundColor: backgroundColor,
-                color: color,
             },
             itemBox: {
                 position: "absolute",
                 right: right,
                 width: this.props.width,
                 borderRadius: this.props.rounded ? this.props.theme.borderRadius.rounded : this.props.theme.borderRadius.default,
-                backgroundColor: backgroundColor,
-                boxShadow: this.props.theme.elevation[elevation],
+                boxShadow: this.props.theme.elevation[2],
                 opacity: opacity,
                 marginTop: marginTop,
-                marginLeft: marginLeft
+                marginLeft: marginLeft,
+                visibility: visibility,
+                transition: `
+                    opacity ${this.props.theme.transition.delay},
+                    visibility ${this.props.theme.transition.delay},
+                    margin-left ${this.props.theme.transition.delay},
+                    margin-top ${this.props.theme.transition.delay}
+                `,
             }
         }
         return (
@@ -99,16 +77,13 @@ Menu.defaultProps = {
     height: '25px',
     color: "primary",
     theme: basic,
-    elevation: 2
 };
 Menu.propTypes = {
     width: PropTypes.string,
     height: PropTypes.string,
+    label: PropTypes.string,
     color: PropTypes.string,
-    onClick: PropTypes.func,
-    children: PropTypes.string,
-    theme: PropTypes.object,
-    elevation: PropTypes.number
+    theme: PropTypes.object
 };
 
 export default Menu;

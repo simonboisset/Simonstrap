@@ -15,7 +15,7 @@ export const basic = {
         danger : palette(255,87,34),
     },
     transition:{
-        delay:"300ms"
+        delay:"500ms"
     },
     elevation:[
         "none",
