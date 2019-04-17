@@ -34,12 +34,12 @@ class Menu extends React.Component {
         // }
     }
     render() {
-        let right,left,top,bottom, opacity, margin, visibility;
+        let opacity, margin, visibility;
         let marginMax,marginMin;
         switch (this.props.direction) {
             case "Top":{
-                marginMin=`0px 0px 0px 0px`;
-                marginMax="0px 0px 25px 0px";
+                marginMin=`-${this.state.container.height+this.state.item.height}px 0px 0px 0px`;
+                marginMax=`-${this.state.container.height+this.state.item.height+25}px 0px 0px 0px`;
                 break;
             }
             case "Bottom":{
@@ -48,13 +48,13 @@ class Menu extends React.Component {
                 break;
             }
             case "Left":{
-                marginMin=`-${this.state.item.height}px 0px 0px -${this.state.item.width}px`;
-                marginMax=`0px 0px 0px -${this.state.item.width+25}px`;
+                marginMin=`-${this.state.container.height}px 0px 0px -${this.state.item.width}px`;
+                marginMax=`-${this.state.container.height}px 0px 0px -${this.state.item.width+25}px`;
                 break;
             }
             case "Right":{
-                marginMin=`0px 0px 0px 0px`;
-                marginMax="25px 0px 0px 0px";
+                marginMin=`-${this.state.container.height}px 0px 0px ${this.state.container.width}px`;
+                marginMax=`-${this.state.container.height}px 0px 0px ${this.state.container.width+25}px`;
                 break;
             }
             default:
@@ -88,8 +88,10 @@ class Menu extends React.Component {
                 boxShadow: this.props.theme.elevation[2],
                 opacity: opacity,
                 margin: margin,
+                padding:"3px 0 0 0",
                 visibility: visibility,
                 backgroundColor:"white",
+                color:"black",
                 transition: `
                     opacity ${this.props.theme.transition.delay},
                     visibility ${this.props.theme.transition.delay},

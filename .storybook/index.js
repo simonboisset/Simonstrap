@@ -45,18 +45,24 @@ storiesOf('Header', module)
       <Header>
         <Div row>
           <Menu label={<Icon>delete</Icon>}>
-            <Menu left vertical label="Menu"><Item>Coucou</Item></Menu>
-            <Menu left vertical label="Menu">
-              <Menu left vertical label="Menu"><Item>Coucou</Item></Menu>
+            <Menu direction="Right" label="Menu"><Item>Coucou</Item></Menu>
+            <Menu direction="Right" label="Menu">
+              <Menu direction="Right" label="Menu"><Item>Coucou</Item></Menu>
             </Menu>
             <Item>Coucou</Item>
           </Menu>
           <Menu label="Menu"><Item>Coucou</Item></Menu>
         </Div>
         <Div row>
-          <Menu direction="Left" label="Left"><Item>Coucou</Item></Menu>
+          <Menu direction="Left" label="Left">
+            <Menu direction="Bottom" label="Bottom">
+              <Menu direction="Left" label="Left">
+                <Menu direction="Top" label="Top"><Item>Item</Item></Menu>
+              </Menu>
+            </Menu>
+          </Menu>
           <Menu direction="Right" label="Right"><Item>Coucou</Item></Menu>
-        </Div><Div/><Div/><Div/>
+        </Div>
         <Div>
           <Menu direction="Top" label="Menu"><Item>Coucou</Item></Menu>
         </Div>
