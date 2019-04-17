@@ -10,3 +10,6 @@
   font-weight: 400;
   src: url(./Roboto.ttf) format('truetype');
 }
+*{
+  font-family: 'Roboto';
+}

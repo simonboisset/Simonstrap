@@ -6,6 +6,10 @@ function palette(r,g,b){
     }
 }
 export const basic = {
+    size:{
+        width:"200px",
+        height:"40px"
+    },
     color : {
         default : palette(100,100,100),
         primary : palette(255,193,7),

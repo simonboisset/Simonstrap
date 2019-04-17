@@ -58,8 +58,8 @@ class Button extends React.Component {
   }
 }
 Button.defaultProps = {
-  width: '130px',
-  height: '25px',
+  width: basic.size.width,
+  height: basic.size.height,
   color: "primary",
   theme: basic,
   elevation: 2

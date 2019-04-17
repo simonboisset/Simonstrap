@@ -42,8 +42,7 @@ storiesOf('Header', module)
   ))
   .add('with Title', () => (
     <div>
-      <Header><SetGlobalTheme />
-        <Title>Title</Title>
+      <Header>
         <Div row>
           <Menu label={<Icon>delete</Icon>}>
             <Menu left vertical label="Menu"><Item>Coucou</Item></Menu>
@@ -54,7 +53,15 @@ storiesOf('Header', module)
           </Menu>
           <Menu label="Menu"><Item>Coucou</Item></Menu>
         </Div>
-      </Header></div>
+        <Div row>
+          <Menu direction="Left" label="Left"><Item>Coucou</Item></Menu>
+          <Menu direction="Right" label="Right"><Item>Coucou</Item></Menu>
+        </Div><Div/><Div/><Div/>
+        <Div>
+          <Menu direction="Top" label="Menu"><Item>Coucou</Item></Menu>
+        </Div>
+      </Header>
+    </div>
   ))
   .add('with Title and Menu', () => (
     <Header>Hello Button</Header>
