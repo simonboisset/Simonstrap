@@ -9,57 +9,70 @@ class Menu extends React.Component {
         this.state = {
             click: false,
             hover: false,
-            container:{
-                bottom:0,
-                top:0,
-                left:0,
-                right:0
+            container: {
+                bottom: 0,
+                top: 0,
+                left: 0,
+                right: 0
             },
-            item:{
-                bottom:0,
-                top:0,
-                left:0,
-                right:0
+            item: {
+                bottom: 0,
+                top: 0,
+                left: 0,
+                right: 0
             }
         }
     }
     componentDidMount() {
         this.setState({
-            container:this.refContainer.current.getBoundingClientRect(),
-            item:this.refItem.current.getBoundingClientRect()});
+            container: this.refContainer.current.getBoundingClientRect(),
+            item: this.refItem.current.getBoundingClientRect()
+        });
         console.log(this.refContainer.current.getBoundingClientRect());
-        
+
         // if (window.innerWidth - this.refContainer.current.getBoundingClientRect().left < 150) {
         //     this.setState({ class: "right" });
         // }
     }
     render() {
-        let opacity, margin, visibility;
-        let marginMax,marginMin;
+        let opacity, margin, visibility, padding;
+        let marginMax, marginMin;
         switch (this.props.direction) {
-            case "Top":{
-                marginMin=`-${this.state.container.height+this.state.item.height}px 0px 0px 0px`;
-                marginMax=`-${this.state.container.height+this.state.item.height+25}px 0px 0px 0px`;
+            case "Top": {
+                padding = "0px 0px 3px 0px";
+                marginMin = `-${this.state.container.height + this.state.item.height}px 0px 0px 0px`;
+                marginMax = `-${this.state.container.height + this.state.item.height + 25}px 0px 0px 0px`;
                 break;
             }
-            case "Bottom":{
-                marginMin=`0px 0px 0px 0px`;
-                marginMax="25px 0px 0px 0px";
+            case "Bottom": {
+                padding = "3px 0px 0px 0px";
+                marginMin = `0px 0px 0px 0px`;
+                marginMax = "25px 0px 0px 0px";
                 break;
             }
-            case "Left":{
-                marginMin=`-${this.state.container.height}px 0px 0px -${this.state.item.width}px`;
-                marginMax=`-${this.state.container.height}px 0px 0px -${this.state.item.width+25}px`;
+            case "Left": {
+                padding = "0px 3px 0px 0px";
+                marginMin = `-${this.state.container.height}px 0px 0px -${this.state.item.width}px`;
+                marginMax = `-${this.state.container.height}px 0px 0px -${this.state.item.width + 25}px`;
                 break;
             }
-            case "Right":{
-                marginMin=`-${this.state.container.height}px 0px 0px ${this.state.container.width}px`;
-                marginMax=`-${this.state.container.height}px 0px 0px ${this.state.container.width+25}px`;
+            case "Right": {
+                padding = "0px 0px 0px 3px";
+
+                if (this.props.orientation === "Top") {
+                    marginMin = `-${this.state.item.height}px 0px 0px ${this.state.container.width}px`;
+                    marginMax = `-${this.state.item.height}px 0px 0px ${this.state.container.width + 25}px`;
+                }
+                else {
+                    marginMin = `-${this.state.container.height}px 0px 0px ${this.state.container.width}px`;
+                    marginMax = `-${this.state.container.height}px 0px 0px ${this.state.container.width + 25}px`;
+                }
                 break;
             }
             default:
-                marginMin=`0px 0px 0px 0px`;
-                marginMax="25px 0px 0px 0px";
+                padding = "3px 0px 0px 0px";
+                marginMin = `0px 0px 0px 0px`;
+                marginMax = "25px 0px 0px 0px";
                 break;
         }
         if (this.state.hover) {
@@ -83,22 +96,25 @@ class Menu extends React.Component {
             },
             itemBox: {
                 position: "absolute",
-                width: this.props.width,
-                borderRadius: this.props.rounded ? this.props.theme.borderRadius.rounded : this.props.theme.borderRadius.default,
-                boxShadow: this.props.theme.elevation[2],
                 opacity: opacity,
                 margin: margin,
-                padding:"3px 0 0 0",
                 visibility: visibility,
-                backgroundColor:"white",
-                color:"black",
+                padding: padding,
                 transition: `
                     opacity ${this.props.theme.transition.delay},
                     visibility ${this.props.theme.transition.delay},
                     margin-left ${this.props.theme.transition.delay},
                     margin-top ${this.props.theme.transition.delay}
                 `,
+            },
+            item: {
+                width: this.props.width,
+                borderRadius: this.props.rounded ? this.props.theme.borderRadius.rounded : this.props.theme.borderRadius.default,
+                boxShadow: this.props.theme.elevation[2],
+                backgroundColor: "white",
+                color: "black"
             }
+
         }
         return (
             <div
@@ -109,7 +125,7 @@ class Menu extends React.Component {
                 onMouseDown={() => this.setState({ click: true })}
             >
                 <div style={style.menuBox} >{this.props.label}</div>
-                <div ref={this.refItem} style={style.itemBox}>{this.props.children}</div>
+                <div ref={this.refItem} style={style.itemBox}><div style={style.item}>{this.props.children}</div></div>
             </div>
         );
     }
@@ -119,8 +135,8 @@ Menu.defaultProps = {
     height: basic.size.height,
     color: "primary",
     theme: basic,
-    direction:"Bottom",
-    trigger:"Hover"
+    direction: "Bottom",
+    trigger: "Hover",
 };
 Menu.propTypes = {
     width: PropTypes.string,
@@ -131,9 +147,9 @@ Menu.propTypes = {
     ]),
     color: PropTypes.string,
     theme: PropTypes.object,
-    direction:PropTypes.oneOf(["Top", "Bottom","Left","Right"]),
-    align:PropTypes.oneOf(["Left","Right"]),
-    trigger:PropTypes.oneOf(["Clic","Hover"]),
+    direction: PropTypes.oneOf(["Top", "Bottom", "Left", "Right"]),
+    orientation: PropTypes.oneOf(["Top", "Bottom", "Left", "Right"]),
+    trigger: PropTypes.oneOf(["Clic", "Hover"]),
 };
 
 export default Menu;

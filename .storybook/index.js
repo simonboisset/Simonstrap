@@ -47,7 +47,17 @@ storiesOf('Header', module)
           <Menu label={<Icon>delete</Icon>}>
             <Menu direction="Right" label="Menu"><Item>Coucou</Item></Menu>
             <Menu direction="Right" label="Menu">
-              <Menu direction="Right" label="Menu"><Item>Coucou</Item></Menu>
+              <Menu direction="Right" label="Menu">
+                <Item>Item</Item>
+                <Item>Item</Item>
+                <Item>Item</Item>
+                <Item>Item</Item>
+              </Menu>
+              <Menu direction="Right" orientation="Top" label="Menu">
+                <Item>Item</Item>
+                <Item>Item</Item>
+                <Item>Item</Item>
+              </Menu>
             </Menu>
             <Item>Coucou</Item>
           </Menu>
