@@ -33,6 +33,7 @@ class Button extends React.Component {
     }
     const style = {
       margin: "10px",
+      fontSize: "18px",
       width: this.props.width,
       height: this.props.height,
       color: "white",

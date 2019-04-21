@@ -40,48 +40,6 @@ storiesOf('Header', module)
   .add('Simple', () => (
     <Header>Hello Button</Header>
   ))
-  .add('with Title', () => (
-    <div>
-      <Header>
-        <Div row>
-          <Menu label={<Icon>delete</Icon>}>
-            <Menu direction="Right" label="Menu"><Item>Coucou</Item></Menu>
-            <Menu direction="Right" label="Menu">
-              <Menu direction="Right" label="Menu">
-                <Item>Item</Item>
-                <Item>Item</Item>
-                <Item>Item</Item>
-                <Item>Item</Item>
-              </Menu>
-              <Menu direction="Right" orientation="Top" label="Menu">
-                <Item>Item</Item>
-                <Item>Item</Item>
-                <Item>Item</Item>
-              </Menu>
-            </Menu>
-            <Item>Coucou</Item>
-          </Menu>
-          <Menu label="Menu"><Item>Coucou</Item></Menu>
-        </Div>
-        <Div row>
-          <Menu direction="Left" label="Left">
-            <Menu direction="Bottom" label="Bottom">
-              <Menu direction="Left" label="Left">
-                <Menu direction="Top" label="Top"><Item>Item</Item></Menu>
-              </Menu>
-            </Menu>
-          </Menu>
-          <Menu direction="Right" label="Right"><Item>Coucou</Item></Menu>
-        </Div>
-        <Div>
-          <Menu direction="Top" label="Menu"><Item>Coucou</Item></Menu>
-        </Div>
-      </Header>
-    </div>
-  ))
-  .add('with Title and Menu', () => (
-    <Header>Hello Button</Header>
-  ));
 storiesOf('Icon', module)
   .add('with text', () => (
     <Icon>home</Icon>
@@ -106,4 +64,46 @@ storiesOf('Menu', module)
       </Item>
       </Menu>
     </Menu>
+  ))
+  .add('Full exemple', () => (
+    <Header>
+      <Div row>
+        <Menu label={<Icon>delete</Icon>}>
+          <Menu direction="Right" label="Menu"><Item>Coucou</Item></Menu>
+          <Menu direction="Right" label="Menu">
+            <Menu direction="Right" label="Menu">
+              <Item>Item</Item>
+              <Item>Item</Item>
+              <Item>Item</Item>
+              <Item>Item</Item>
+            </Menu>
+            <Menu direction="Right" orientation="Top" label="Menu">
+              <Item>Item</Item>
+              <Item>Item</Item>
+              <Item>Item</Item>
+            </Menu>
+          </Menu>
+          <Item>Coucou</Item>
+        </Menu>
+        <Menu label="Menu"><Item>Coucou</Item></Menu>
+      </Div>
+      <Div row>
+        <Menu direction="Bottom" orientation="Left" label="Left">
+          <Item>Item</Item>
+        </Menu>
+        <Menu direction="Bottom" orientation="Right" label="Right">
+          <Menu direction="Right" label="Right"><Item>Coucou</Item></Menu>
+          <Menu direction="Left" label="Left">
+            <Menu direction="Bottom" label="Bottom">
+              <Menu direction="Left" label="Left">
+                <Menu direction="Top" label="Top"><Item>Item</Item></Menu>
+              </Menu>
+            </Menu>
+          </Menu>
+        </Menu>
+      </Div>
+      <Div>
+        <Menu direction="Bottom" orientation="Left" label="Bottom Left"><Item>Item</Item></Menu>
+      </Div>
+    </Header>
   ));

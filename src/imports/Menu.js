@@ -9,63 +9,71 @@ class Menu extends React.Component {
         this.state = {
             click: false,
             hover: false,
-            container: {
-                bottom: 0,
-                top: 0,
-                left: 0,
-                right: 0
-            },
-            item: {
-                bottom: 0,
-                top: 0,
-                left: 0,
-                right: 0
-            }
         }
     }
-    componentDidMount() {
-        this.setState({
-            container: this.refContainer.current.getBoundingClientRect(),
-            item: this.refItem.current.getBoundingClientRect()
-        });
-        console.log(this.refContainer.current.getBoundingClientRect());
-
-        // if (window.innerWidth - this.refContainer.current.getBoundingClientRect().left < 150) {
-        //     this.setState({ class: "right" });
-        // }
+    componentDidMount(){
+        this.forceUpdate();
     }
     render() {
+        let container,item;
+        if (this.refContainer.current && this.refItem.current) {
+            container= this.refContainer.current.getBoundingClientRect();
+            item= this.refItem.current.getBoundingClientRect();
+            item.width=item.width+5;
+        }
+        else{
+            container= {width:0,height:0}
+            item= {width:0,height:0}
+        }
         let opacity, margin, visibility, padding;
         let marginMax, marginMin;
         switch (this.props.direction) {
             case "Top": {
                 padding = "0px 0px 3px 0px";
-                marginMin = `-${this.state.container.height + this.state.item.height}px 0px 0px 0px`;
-                marginMax = `-${this.state.container.height + this.state.item.height + 25}px 0px 0px 0px`;
+                if (this.props.orientation === "Left") {
+                    marginMin = `-${container.height + item.height}px 0px 0px ${container.width-item.width}px`;
+                    marginMax = `-${container.height + item.height + 25}px 0px 0px ${container.width-item.width}px`;
+                }
+                else {
+                    marginMin = `-${container.height + item.height}px 0px 0px -5px`;
+                    marginMax = `-${container.height + item.height + 25}px 0px 0px -5px`;
+                }
                 break;
             }
             case "Bottom": {
                 padding = "3px 0px 0px 0px";
-                marginMin = `0px 0px 0px 0px`;
-                marginMax = "25px 0px 0px 0px";
+                if (this.props.orientation === "Left") {
+                    marginMin = `0px 0px 0px ${container.width-item.width}px`;
+                    marginMax = `25px 0px 0px ${container.width-item.width}px`;
+                }
+                else {
+                    marginMin = `0px 0px 0px -5px`;
+                    marginMax = `25px 0px 0px -5px`;
+                }
                 break;
             }
             case "Left": {
                 padding = "0px 3px 0px 0px";
-                marginMin = `-${this.state.container.height}px 0px 0px -${this.state.item.width}px`;
-                marginMax = `-${this.state.container.height}px 0px 0px -${this.state.item.width + 25}px`;
+                if (this.props.orientation === "Top") {
+                    marginMin = `-${item.height}px 0px 0px -${item.width}px`;
+                    marginMax = `-${item.height}px 0px 0px -${item.width + 25}px`;
+                }
+                else {
+                    marginMin = `-${container.height}px 0px 0px -${item.width}px`;
+                    marginMax = `-${container.height}px 0px 0px -${item.width + 25}px`;
+                }
                 break;
             }
             case "Right": {
                 padding = "0px 0px 0px 3px";
 
                 if (this.props.orientation === "Top") {
-                    marginMin = `-${this.state.item.height}px 0px 0px ${this.state.container.width}px`;
-                    marginMax = `-${this.state.item.height}px 0px 0px ${this.state.container.width + 25}px`;
+                    marginMin = `-${item.height}px 0px 0px ${container.width}px`;
+                    marginMax = `-${item.height}px 0px 0px ${container.width + 25}px`;
                 }
                 else {
-                    marginMin = `-${this.state.container.height}px 0px 0px ${this.state.container.width}px`;
-                    marginMax = `-${this.state.container.height}px 0px 0px ${this.state.container.width + 25}px`;
+                    marginMin = `-${container.height}px 0px 0px ${container.width}px`;
+                    marginMax = `-${container.height}px 0px 0px ${container.width + 25}px`;
                 }
                 break;
             }
@@ -108,6 +116,7 @@ class Menu extends React.Component {
                 `,
             },
             item: {
+                padding : "0px 0px 0px 5px",
                 width: this.props.width,
                 borderRadius: this.props.rounded ? this.props.theme.borderRadius.rounded : this.props.theme.borderRadius.default,
                 boxShadow: this.props.theme.elevation[2],
