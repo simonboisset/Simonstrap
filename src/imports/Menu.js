@@ -19,7 +19,7 @@ class Menu extends React.Component {
         if (this.refContainer.current && this.refItem.current) {
             container= this.refContainer.current.getBoundingClientRect();
             item= this.refItem.current.getBoundingClientRect();
-            item.width=item.width+5;
+            // item.width=item.width+5;
         }
         else{
             container= {width:0,height:0}
@@ -35,8 +35,8 @@ class Menu extends React.Component {
                     marginMax = `-${container.height + item.height + 25}px 0px 0px ${container.width-item.width}px`;
                 }
                 else {
-                    marginMin = `-${container.height + item.height}px 0px 0px -5px`;
-                    marginMax = `-${container.height + item.height + 25}px 0px 0px -5px`;
+                    marginMin = `-${container.height + item.height}px 0px 0px 0px`;
+                    marginMax = `-${container.height + item.height + 25}px 0px 0px 0px`;
                 }
                 break;
             }
@@ -47,8 +47,8 @@ class Menu extends React.Component {
                     marginMax = `25px 0px 0px ${container.width-item.width}px`;
                 }
                 else {
-                    marginMin = `0px 0px 0px -5px`;
-                    marginMax = `25px 0px 0px -5px`;
+                    marginMin = `0px 0px 0px 0px`;
+                    marginMax = `25px 0px 0px 0px`;
                 }
                 break;
             }
@@ -103,6 +103,7 @@ class Menu extends React.Component {
                 cursor: "default",
             },
             itemBox: {
+                width: this.props.width,
                 position: "absolute",
                 opacity: opacity,
                 margin: margin,
@@ -116,8 +117,6 @@ class Menu extends React.Component {
                 `,
             },
             item: {
-                padding : "0px 0px 0px 5px",
-                width: this.props.width,
                 borderRadius: this.props.rounded ? this.props.theme.borderRadius.rounded : this.props.theme.borderRadius.default,
                 boxShadow: this.props.theme.elevation[2],
                 backgroundColor: "white",
@@ -146,10 +145,12 @@ Menu.defaultProps = {
     theme: basic,
     direction: "Bottom",
     trigger: "Hover",
+    padding:"5px 5px 5px 5px",
 };
 Menu.propTypes = {
     width: PropTypes.string,
     height: PropTypes.string,
+    padding:PropTypes.string,
     label: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.element

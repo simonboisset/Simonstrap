@@ -50,7 +50,8 @@ Item.defaultProps = {
   height: basic.size.height,
   color: "primary",
   theme: basic,
-  elevation: 2
+  elevation: 2,
+  padding:"5px 5px 5px 5px",
 };
 Item.propTypes = {
   width: PropTypes.string,

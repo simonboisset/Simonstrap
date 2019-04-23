@@ -68,31 +68,31 @@ storiesOf('Menu', module)
   .add('Full exemple', () => (
     <Header>
       <Div row>
-        <Menu label={<Icon>delete</Icon>}>
-          <Menu direction="Right" label="Menu"><Item>Coucou</Item></Menu>
-          <Menu direction="Right" label="Menu">
-            <Menu direction="Right" label="Menu">
+        <Menu padding="5px 5px 5px 10px" label={<Icon>menu</Icon>}>
+          <Menu direction="Right" label="Right"><Item>Item</Item></Menu>
+          <Menu direction="Right" label="Orientation">
+            <Menu direction="Right" label="Bottom">
               <Item>Item</Item>
               <Item>Item</Item>
               <Item>Item</Item>
               <Item>Item</Item>
             </Menu>
-            <Menu direction="Right" orientation="Top" label="Menu">
+            <Menu direction="Right" orientation="Top" label="Top">
               <Item>Item</Item>
               <Item>Item</Item>
               <Item>Item</Item>
             </Menu>
           </Menu>
-          <Item>Coucou</Item>
+          <Item>Item</Item>
         </Menu>
-        <Menu label="Menu"><Item>Coucou</Item></Menu>
+        <Menu label="Menu"><Item>Item</Item></Menu>
       </Div>
       <Div row>
         <Menu direction="Bottom" orientation="Left" label="Left">
           <Item>Item</Item>
         </Menu>
         <Menu direction="Bottom" orientation="Right" label="Right">
-          <Menu direction="Right" label="Right"><Item>Coucou</Item></Menu>
+          <Menu direction="Right" label="Right"><Item>Item</Item></Menu>
           <Menu direction="Left" label="Left">
             <Menu direction="Bottom" label="Bottom">
               <Menu direction="Left" label="Left">
@@ -103,7 +103,7 @@ storiesOf('Menu', module)
         </Menu>
       </Div>
       <Div>
-        <Menu direction="Bottom" orientation="Left" label="Bottom Left"><Item>Item</Item></Menu>
+        <Menu padding="5px 10px 5px 5px" direction="Bottom" orientation="Left" label={<Icon>person</Icon>}><Item>Item</Item></Menu>
       </Div>
     </Header>
   ));
