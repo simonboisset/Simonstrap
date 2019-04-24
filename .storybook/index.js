@@ -52,7 +52,7 @@ storiesOf('Input', module)
   .add('with text', () => (
     <Input />
   ))
-  .add('with File', () => (
+  .add('Input File', () => (
     <Input type="file" label="Load File" />
   ));
 storiesOf('Menu', module)
@@ -85,7 +85,9 @@ storiesOf('Menu', module)
           </Menu>
           <Item>Item</Item>
         </Menu>
-        <Menu label="Menu"><Item>Item</Item></Menu>
+        <Menu label="Focus" trigger="Focus">
+        <Menu direction="Right" trigger="Focus" label="Right"><Item>Item</Item></Menu>
+        <Item>Item</Item></Menu>
       </Div>
       <Div row>
         <Menu direction="Bottom" orientation="Left" label="Left">

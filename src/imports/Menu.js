@@ -7,7 +7,7 @@ class Menu extends React.Component {
         this.refContainer = React.createRef();
         this.refItem = React.createRef();
         this.state = {
-            click: false,
+            focus: false,
             hover: false,
         }
     }
@@ -83,7 +83,7 @@ class Menu extends React.Component {
                 marginMax = "25px 0px 0px 0px";
                 break;
         }
-        if (this.state.hover) {
+        if ((this.state.hover && this.props.trigger==="Hover") ||(this.state.focus && this.props.trigger==="Focus") ) {
             visibility = "visible";
             opacity = "1";
             margin = marginMin;
@@ -94,6 +94,10 @@ class Menu extends React.Component {
             margin = marginMax;
         }
         const style = {
+            container: {
+                outline: "none",
+                border: "none",
+            },
             menuBox: {
                 margin: "0",
                 height: this.props.height,
@@ -101,6 +105,8 @@ class Menu extends React.Component {
                 padding: this.props.padding,
                 alignItems: "center",
                 cursor: "default",
+                outline: "none",
+                border: "none",
             },
             itemBox: {
                 width: this.props.width,
@@ -126,11 +132,13 @@ class Menu extends React.Component {
         }
         return (
             <div
+                tabIndex="0"
                 ref={this.refContainer}
                 onMouseEnter={() => this.setState({ hover: true })}
-                onMouseLeave={() => this.setState({ hover: false, click: false })}
-                onMouseUp={() => this.setState({ click: false })}
-                onMouseDown={() => this.setState({ click: true })}
+                onMouseLeave={() => this.setState({ hover: false})}
+                onFocus={() => this.setState({ focus: true })}
+                onBlur={() => this.setState({ focus: false })}
+                style={style.container}
             >
                 <div style={style.menuBox} >{this.props.label}</div>
                 <div ref={this.refItem} style={style.itemBox}><div style={style.item}>{this.props.children}</div></div>
@@ -159,7 +167,7 @@ Menu.propTypes = {
     theme: PropTypes.object,
     direction: PropTypes.oneOf(["Top", "Bottom", "Left", "Right"]),
     orientation: PropTypes.oneOf(["Top", "Bottom", "Left", "Right"]),
-    trigger: PropTypes.oneOf(["Clic", "Hover"]),
+    trigger: PropTypes.oneOf(["Focus", "Hover"]),
 };
 
 export default Menu;
