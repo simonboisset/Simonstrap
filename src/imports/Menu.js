@@ -118,8 +118,7 @@ class Menu extends React.Component {
                 transition: `
                     opacity ${this.props.theme.transition.delay},
                     visibility ${this.props.theme.transition.delay},
-                    margin-left ${this.props.theme.transition.delay},
-                    margin-top ${this.props.theme.transition.delay}
+                    margin ${this.props.theme.transition.delay}
                 `,
             },
             item: {

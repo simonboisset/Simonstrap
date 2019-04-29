@@ -49,9 +49,9 @@ Item.defaultProps = {
   width: basic.size.width,
   height: basic.size.height,
   color: "primary",
-  theme: basic,
   elevation: 2,
   padding:"5px 5px 5px 5px",
+  theme: basic,
 };
 Item.propTypes = {
   width: PropTypes.string,

@@ -1,17 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import {
-  SetGlobalTheme, Div, Body, Image, Icon, Button, Card, Dialog, Drawer,
+  Div, Body, Select, Icon, Button, Card, Dialog, Drawer,
   Footer, Header, Input, Item, Menu, Title, Text
 } from '../src';
 import { DialogStory, DrawerStory, ImageStory } from './stories';
-storiesOf('Page', module)
-  .add('Exemple 1', () => (
-    <Button>Hello Button</Button>
-  ));
-storiesOf('Body', module)
-  .add('Simple Body', () => (
+storiesOf('Layout', module)
+  .add('Header', () => (
+    <Header>Hello</Header>
+  ))
+  .add('Body', () => (
     <Body></Body>
+  ))
+  .add('Div', () => (
+    <Div>Hello</Div>
   ));
 storiesOf('Button', module)
   .add('Default', () => (
@@ -21,42 +23,58 @@ storiesOf('Button', module)
     <Button color="default" rounded>Button</Button>
   ));
 storiesOf('Card', module)
-  .add('with text', () => (
-    <Card shadow>Hello Button</Card>
+  .add('Card', () => (
+    <Card shadow>Hello</Card>
   ));
 storiesOf('Dialog', module)
-  .add('with text', () => (
+  .add('Dialog', () => (
     <DialogStory />
   ));
-storiesOf('Div', module)
-  .add('with text', () => (
-    <Div>Hello Div</Div>
-  ));
 storiesOf('Drawer', module)
-  .add('with text', () => (
+  .add('Drawer', () => (
     <DrawerStory />
   ));
-storiesOf('Header', module)
-  .add('Simple', () => (
-    <Header>Hello Button</Header>
-  ))
 storiesOf('Icon', module)
-  .add('with text', () => (
-    <Icon>home</Icon>
+  .add('Material', () => (
+    <div>
+      <Icon>home</Icon>
+      <Icon>person</Icon>
+      <Icon>done</Icon>
+      <Icon>mail</Icon>
+      <Icon>alarm</Icon>
+    </div>
   ));
 storiesOf('Image', module)
-  .add('with text', () => (
+  .add('Image', () => (
     <ImageStory />
   ));
-storiesOf('Input', module)
-  .add('with text', () => (
+storiesOf('Form', module)
+  .add('Input', () => (
     <Input />
   ))
   .add('Input File', () => (
     <Input type="file" label="Load File" />
+  ))
+  .add('CheckBox', () => (
+    <Input type="checkbox" label="Load File" />
+  ))
+  .add('Swipe', () => (
+    <Input type="swipe" label="Load File" />
+  ))
+  .add('Select, Radio', () => (
+    <Input type="radio" label="Load File" />
+  ))
+  .add('Slider', () => (
+    <Input type="range" label="Load File" />
+  ))
+  .add('Date', () => (
+    <Input type="date" label="Load File" />
+  ))
+  .add('Hour', () => (
+    <Input type="hour" label="Load File" />
   ));
 storiesOf('Menu', module)
-  .add('with text', () => (
+  .add('Menu', () => (
     <Menu label="Menu">
       <Menu label="Menu2">
         <Item>
@@ -86,8 +104,8 @@ storiesOf('Menu', module)
           <Item>Item</Item>
         </Menu>
         <Menu label="Focus" trigger="Focus">
-        <Menu direction="Right" trigger="Focus" label="Right"><Item>Item</Item></Menu>
-        <Item>Item</Item></Menu>
+          <Menu direction="Right" trigger="Focus" label="Right"><Item>Item</Item></Menu>
+          <Item>Item</Item></Menu>
       </Div>
       <Div row>
         <Menu direction="Bottom" orientation="Left" label="Left">

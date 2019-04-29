@@ -1,5 +1,5 @@
 import React from 'react';
-import image from "./image.jpg"
+import favicon from "./react.ico"
 import {Image} from '../../src';
 class ImageStory extends React.Component {
     constructor(){
@@ -11,7 +11,7 @@ class ImageStory extends React.Component {
     render() {
         return(
         <div>
-            <Image src={image}/>
+            <Image width="300px" height="200px" src={favicon}/>
         </div>
         );
     }

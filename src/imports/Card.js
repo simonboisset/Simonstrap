@@ -33,6 +33,7 @@ class Card extends React.Component {
         flexDirection: flexDirection,
         justifyContent: this.props.justify,
         alignItems: this.props.align,
+        backgroundColor:"white",
         boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',     
     }
     return (<div style={style}>{this.props.children}</div>);

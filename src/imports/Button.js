@@ -52,8 +52,6 @@ class Button extends React.Component {
         onMouseUp={() => this.setState({ click: false })}
         onMouseDown={() => this.setState({ click: true })}
         onClick={this.props.onClick}
-        onFocus={()=>console.log("focus")}
-                onBlur={()=>console.log("blur")}
       >
         {this.props.children}
       </button>
