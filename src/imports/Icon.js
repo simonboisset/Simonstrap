@@ -17,6 +17,7 @@ class Icon extends React.Component {
       direction: "ltr",
       textRendering: "optimizeLegibility",
       fontFeatureSettings: 'liga',
+      ...this.props.style
     }
     return (<i style={style}>{this.props.children}</i>);
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from "./Button";
+import {Div,Button,Icon} from "../index";
 import { basic } from "../themes/basic";
 class Input extends React.Component {
     constructor() {
@@ -10,7 +10,8 @@ class Input extends React.Component {
             display: false,
             active: "null",
             timer: Date.now(),
-            class: ""
+            class: "",
+            value:""
         }
     }
     render() {
@@ -33,8 +34,21 @@ class Input extends React.Component {
                 color: "rgb(100,100,100)",
                 outline: "none",
             },
+            label:{
+                display:"flex",
+                flexDirection:"row"
+            },
             checkbox: {
-
+                display:"flex",
+                justifyContent:"center",
+                alignItems:"center",
+                fontSize:"13px",
+                borderRadius:"3px",
+                width:"20px",
+                height:"20px",
+                backgroundColor:"white",
+                color:"white",
+                border:"solid blue 1px"
             }
         }
         switch (this.props.type) {
@@ -50,8 +64,11 @@ class Input extends React.Component {
             case "checkbox":
                 {
                     return (
-                        <label>
-                            <input {...this.props} />
+                        <label style={style.label}>
+                            <input type="checkbox" value={this.state.value} onChange={(event)=>{
+                                this.setState({value:!this.state.value})
+                                console.log(event.target.value)}}/>
+                            <div style={style.checkbox} {...this.props}><Icon style={{fontSize:"15px"}}>done</Icon></div>
                             {this.props.label}
                         </label>
                     );
