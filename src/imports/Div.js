@@ -39,6 +39,16 @@ class Div extends React.Component {
       backgroundSize = "none";
       backgroundImage="none";
     }
+    switch (this.props.fontSize) {
+      case "h1":
+        {
+          
+        }
+        break;
+    
+      default:
+        break;
+    }
     const style={
       display: "flex",
       flexWrap: wrap,
@@ -54,6 +64,7 @@ class Div extends React.Component {
       backgroundColor:this.props.background,
       backgroundImage: backgroundImage,
       backgroundSize: backgroundSize,
+      fontSize:fontSize
     }
     return (<div style={style}>{this.props.children}</div>);
   }

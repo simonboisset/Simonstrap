@@ -22,7 +22,8 @@ class Body extends React.Component {
     const style={
       margin:"0px",
       width:this.state.width+"px",
-      height:this.state.height+"px"
+      height:this.state.height+"px",
+      ...this.props.style
     }
     return (
       <div style={style}>

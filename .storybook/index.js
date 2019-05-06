@@ -10,7 +10,7 @@ storiesOf('Layout', module)
     <Header>Hello</Header>
   ))
   .add('Body', () => (
-    <Body></Body>
+    <Body style={{ backgroundColor: "red" }}></Body>
   ))
   .add('Div', () => (
     <Div>Hello</Div>
@@ -44,8 +44,22 @@ storiesOf('Icon', module)
       <Icon>alarm</Icon>
     </div>
   ));
+storiesOf('Tab', module)
+  .add('Tab', () => (
+    <div>
+      Tab
+    </div>
+  ))
+  .add('List', () => (
+    <div>
+      Tableau
+    </div>
+  ));
 storiesOf('Image', module)
   .add('Image', () => (
+    <ImageStory />
+  ))
+  .add('Carousel', () => (
     <ImageStory />
   ));
 storiesOf('Form', module)
