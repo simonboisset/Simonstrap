@@ -34,5 +34,12 @@ export const basic = {
         rounded : "20px"
     },
     ripple : true,
-
+    fontSize:{
+        h1:"20px",
+        h2:"18px",
+        h3:"14px",
+        h4:"12px",
+        h5:"10px",
+        h6:"18px"
+    }
 }

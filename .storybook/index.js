@@ -13,7 +13,11 @@ storiesOf('Layout', module)
     <Body style={{ backgroundColor: "red" }}></Body>
   ))
   .add('Div', () => (
-    <Div>Hello</Div>
+    <div>
+      <Div text="h1">H1</Div>
+      <Div text="h5">H5</Div>
+      <Div text="30px">30px</Div>
+    </div>
   ));
 storiesOf('Button', module)
   .add('Default', () => (
@@ -140,4 +144,15 @@ storiesOf('Menu', module)
         <Menu padding="5px 10px 5px 5px" direction="Bottom" orientation="Left" label={<Icon>person</Icon>}><Item>Item</Item></Menu>
       </Div>
     </Header>
+  ));
+storiesOf('Progress', module)
+  .add('Bar', () => (
+    <div>
+      Bar
+    </div>
+  ))
+  .add('Circle', () => (
+    <div>
+      Circle
+    </div>
   ));

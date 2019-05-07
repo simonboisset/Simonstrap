@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { basic } from "../themes/basic";
 class Div extends React.Component {
   constructor(){
     super();
@@ -39,15 +39,12 @@ class Div extends React.Component {
       backgroundSize = "none";
       backgroundImage="none";
     }
-    switch (this.props.fontSize) {
-      case "h1":
-        {
-          
-        }
-        break;
-    
-      default:
-        break;
+    let fontSize;
+    if (["h1","h2","h3","h4","h5","h6"].some((prop)=>prop===this.props.text)) {
+      fontSize=this.props.theme.fontSize[this.props.text];
+    }
+    else{
+      fontSize=this.props.text;
     }
     const style={
       display: "flex",
@@ -64,7 +61,8 @@ class Div extends React.Component {
       backgroundColor:this.props.background,
       backgroundImage: backgroundImage,
       backgroundSize: backgroundSize,
-      fontSize:fontSize
+      fontSize:fontSize,
+      ...this.props.style
     }
     return (<div style={style}>{this.props.children}</div>);
   }
@@ -76,7 +74,8 @@ Div.defaultProps = {
     padding:"0",
     justify:"flex-start",
     align:"flex-start",
-    background:"none"
+    background:"none",
+    theme: basic,
 };
 Div.propTypes = {
     width: PropTypes.string,
@@ -89,6 +88,7 @@ Div.propTypes = {
     container:PropTypes.string,
     image:PropTypes.string,
     wrap:PropTypes.string,
+    theme: PropTypes.object,
 };
 
 export default Div;
