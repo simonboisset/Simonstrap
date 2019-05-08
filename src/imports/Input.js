@@ -15,7 +15,15 @@ class Input extends React.Component {
         }
     }
     render() {
-        let borderRadius;
+        let borderRadius,backgroundColor,justifyContent;
+        if (this.state.value===true) {
+            backgroundColor="green"
+            justifyContent="flex-start"
+        }
+        else{
+            backgroundColor="white"
+            justifyContent="flex-end"
+        }
         if (this.props.rounded) {
             borderRadius = "18px";
         }
@@ -46,9 +54,29 @@ class Input extends React.Component {
                 borderRadius:"3px",
                 width:"20px",
                 height:"20px",
-                backgroundColor:"white",
+                backgroundColor:backgroundColor,
                 color:"white",
-                border:"solid blue 1px"
+                border:"solid green 1px",
+                transition:"background-color 300ms"
+            },swipe: {
+                display:"flex",
+                justifyContent:justifyContent,
+                alignItems:"center",
+                fontSize:"13px",
+                borderRadius:"8px",
+                width:"40px",
+                height:"15px",
+                backgroundColor,
+                color:"white",
+                border:"solid black 1px",
+                transition:"justify-content 300ms linear"
+            },
+            swipeButton:{
+                margin:"2px",
+                borderRadius:"6px",
+                width:"12px",
+                height:"12px",
+                backgroundColor:"grey"
             }
         }
         switch (this.props.type) {
@@ -65,9 +93,9 @@ class Input extends React.Component {
                 {
                     return (
                         <label style={style.label}>
-                            <input type="checkbox" value={this.state.value} onChange={(event)=>{
-                                this.setState({value:!this.state.value})
-                                console.log(event.target.value)}}/>
+                            <input type="checkbox" onChange={(event)=>this.setState({value:event.target.checked})}
+                                style={{display:"none"}}
+                            />
                             <div style={style.checkbox} {...this.props}><Icon style={{fontSize:"15px"}}>done</Icon></div>
                             {this.props.label}
                         </label>
@@ -76,8 +104,11 @@ class Input extends React.Component {
             case "swipe":
                 {
                     return (
-                        <label>
-                            <input type="checkbox" />
+                        <label style={style.label}>
+                            <input type="checkbox" onChange={(event)=>this.setState({value:event.target.checked})}
+                                style={{display:"none"}}
+                            />
+                            <div style={style.swipe} {...this.props}><div style={style.swipeButton}/></div>
                             {this.props.label}
                         </label>
                     );
