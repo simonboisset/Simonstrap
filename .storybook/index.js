@@ -68,7 +68,12 @@ storiesOf('Image', module)
   ));
 storiesOf('Form', module)
   .add('Input', () => (
-    <Input />
+    <div>
+      <Input label="Top" />
+      <Input position="Bottom" label="Bottom" />
+      <Input position="Left" label="Left" />
+      <Input position="Right" label="Right" />
+    </div>
   ))
   .add('Input File', () => (
     <Input type="file" label="Load File" />
