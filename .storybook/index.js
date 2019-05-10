@@ -85,7 +85,12 @@ storiesOf('Form', module)
     <Input type="swipe" label="Load File" />
   ))
   .add('Select, Radio', () => (
-    <Input type="radio" label="Load File" />
+    <form>
+      <Input type="radio" name="test" label="Value 1" />
+      <Input type="radio" name="test" label="Value 2" />
+      <Input type="radio" name="test" label="Value 3" />
+      <Input type="radio" name="test" label="Value 4" />
+    </form>
   ))
   .add('Slider', () => (
     <Input type="range" label="Load File" />
@@ -126,7 +131,7 @@ storiesOf('Menu', module)
           </Menu>
           <Item>Item</Item>
         </Menu>
-        <Menu label="Focus" trigger="Focus">
+        <Menu label="Clic" trigger="Focus">
           <Menu direction="Right" trigger="Focus" label="Right"><Item>Item</Item></Menu>
           <Item>Item</Item></Menu>
       </Div>
