@@ -20,15 +20,7 @@ class Input extends React.Component {
             case "date": return (<input {...this.props} />);
             case "hour": return (<input {...this.props} />);
             case "radio": return (<InputRadio {...this.props} />);
-            case "range":
-                {
-                    return (
-                        <label>
-                            <input {...this.props} />
-                            {this.props.label}
-                        </label>
-                    );
-                }
+            case "range": return (<InputRange {...this.props} />);
             default: return (<InputField {...this.props} />);
         }
     }
