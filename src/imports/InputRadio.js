@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from "../index";
 import { basic } from "../themes/basic";
 import Label from "./Label";
 class InputRadio extends React.Component {
     constructor() {
         super();
-        this.state = {
-            value: false
-        }
+        this.refInput = React.createRef();
+    }
+    componentDidMount() {
+        this.props.trigger.on('change', () => {
+            this.forceUpdate();
+        });
     }
     render() {
         let border, opacity;
-        if (this.state.value === true) {
+        if (this.refInput.checked) {
             border = "solid green 1px"
             opacity = "1";
         }
@@ -29,7 +31,7 @@ class InputRadio extends React.Component {
                 borderRadius: "4px",
                 width: "8px",
                 height: "8px",
-                backgroundColor:"white",
+                backgroundColor: "white",
                 color: "white",
                 border,
                 transition: "border 300ms linear"
@@ -46,12 +48,13 @@ class InputRadio extends React.Component {
         return (
             <Label label={this.props.label} position="Left">
                 <input
+                    ref={input => this.refInput = input}
                     type={this.props.type}
                     name={this.props.name}
-                    onChange={(event) => this.setState({ value: event.target.checked })}
+                    onChange={()=>this.props.onChange()}
                     style={{ display: "none" }}
                 />
-                <div style={style.radio} {...this.props}><div style={style.radioButton} /></div>
+                <div style={style.radio} ><div style={style.radioButton} /></div>
             </Label>
         );
     }

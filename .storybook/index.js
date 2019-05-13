@@ -1,10 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import favicon from "./react.ico"
 import {
   Div, Body, Select, Icon, Button, Card, Dialog, Drawer,
-  Footer, Header, Input, Item, Menu, Title, Text
+  Footer, Header, Input, Item, Menu, Title, Text,Image,Carousel
 } from '../src';
-import { DialogStory, DrawerStory, ImageStory } from './stories';
+import { DialogStory, DrawerStory } from './stories';
 storiesOf('Layout', module)
   .add('Header', () => (
     <Header>Hello</Header>
@@ -61,10 +62,10 @@ storiesOf('Tab', module)
   ));
 storiesOf('Image', module)
   .add('Image', () => (
-    <ImageStory />
+    <Image width="300px" height="200px" src={favicon}/>
   ))
   .add('Carousel', () => (
-    <ImageStory />
+    <Carousel width="400px" height="200px" images={[favicon,favicon,favicon]}/>
   ));
 storiesOf('Form', module)
   .add('Input', () => (
@@ -85,12 +86,9 @@ storiesOf('Form', module)
     <Input type="swipe" label="Load File" />
   ))
   .add('Select, Radio', () => (
-    <form>
-      <Input type="radio" name="test" label="Value 1" />
-      <Input type="radio" name="test" label="Value 2" />
-      <Input type="radio" name="test" label="Value 3" />
-      <Input type="radio" name="test" label="Value 4" />
-    </form>
+    
+      <Input inputList={[{label:"Value 1"},{label:"Value 2"},{label:"Value 3"},{label:"Value 4"}]} type="radio" name="test" />
+      
   ))
   .add('Slider', () => (
     <Input type="range" label="Load File" />

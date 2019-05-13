@@ -13,7 +13,7 @@ import Icon from './imports/Icon';
 import Drawer from './imports/Drawer';
 import Dialog from './imports/Dialog';
 import Image from './imports/Image';
+import Carousel from './imports/Carousel';
 import Card from "./imports/Card";
-// import {SetGlobalTheme} from "./imports/SetGlobalTheme";
 export {Select,Dialog,Card,Drawer,Input,Image,
-  Button,Icon,Body,Footer,Item,basic,Div,Header,Menu}
+  Button,Icon,Body,Footer,Item,basic,Div,Header,Menu,Carousel}
