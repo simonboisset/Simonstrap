@@ -16,13 +16,14 @@ class Image extends React.Component {
       width: this.props.width,
       height: this.props.height,
       overflow: "hidden",
-      borderRadius: borderRadius,
+      borderRadius,
       boxShadow: this.props.theme.elevation[this.props.elevation],
       borderWidth: "0",
       outline: "none",
       backgroundImage:`url(${this.props.src})`,
       backgroundSize: 'cover',
       backgroundPosition: "center",
+      ...this.props.style
     }
     return (<div style={style}  />);
   }

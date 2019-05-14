@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 class Icon extends React.Component {
   render() {
     const style={
@@ -7,7 +7,8 @@ class Icon extends React.Component {
       fontFamily: "Icons",
       fontWeight: "normal",
       fontStyle: "normal",
-      fontSize: "24px",
+      color:this.props.color,
+      fontSize: this.props.size,
       display: "inline-block",
       lineHeight: "1",
       textTransform: "none",
@@ -22,4 +23,12 @@ class Icon extends React.Component {
     return (<i style={style}>{this.props.children}</i>);
   }
 }
+Icon.defaultProps = {
+  size: "inherit",
+  color: "inherit",
+};
+Icon.propTypes = {
+  size: PropTypes.string,
+  color: PropTypes.string,
+};
 export default Icon;

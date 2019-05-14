@@ -14,6 +14,9 @@ import Drawer from './imports/Drawer';
 import Dialog from './imports/Dialog';
 import Image from './imports/Image';
 import Carousel from './imports/Carousel';
+import Progress from './imports/Progress';
 import Card from "./imports/Card";
+import Tab from "./imports/Tab";
+import Table from "./imports/Table";
 export {Select,Dialog,Card,Drawer,Input,Image,
-  Button,Icon,Body,Footer,Item,basic,Div,Header,Menu,Carousel}
+  Button,Icon,Body,Footer,Item,basic,Div,Header,Menu,Carousel,Progress,Tab,Table}
