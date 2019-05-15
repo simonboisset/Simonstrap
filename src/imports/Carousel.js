@@ -7,24 +7,42 @@ import { RSA_NO_PADDING } from 'constants';
 class Carousel extends React.Component {
     constructor() {
         super();
-        this.refItem = React.createRef();
+        this.refCarousel = React.createRef();
         this.state = {
             active: 0,
+            transition: false
         }
     }
     increment(value) {
-        let active = this.state.active + value;
-        if (active === -1) {
-            active = this.props.images.length - 1;
+        if (this.state.transition) {
+            return null;
         }
-        if (active === this.props.images.length) {
-            active = 0
+        else {
+            let active = this.state.active + value;
+            if (active === -1) {
+                active = this.props.images.length - 1;
+            }
+            if (active === this.props.images.length) {
+                active = 0
+            }
+            this.setState({ active, transition: true });
+            setTimeout(() => {
+                this.setState({transition: false });
+            }, 300);
         }
-        this.setState({ active });
-        console.log(active);
-        
+
+    }
+    componentDidMount() {
+        this.forceUpdate();
     }
     render() {
+        let width;
+        if (this.refCarousel.current) {
+            width = this.refCarousel.current.getBoundingClientRect().width;
+        }
+        else {
+            width = 100000;
+        }
         const style = {
             carousel: {
                 width: this.props.width,
@@ -34,6 +52,7 @@ class Carousel extends React.Component {
                 marginLeft: "0px",
                 flexWrap: "wrap",
                 overflow: "hidden",
+                borderRadius: "5px"
             },
             container: {
                 position: "relative",
@@ -56,33 +75,39 @@ class Carousel extends React.Component {
                 zIndex: "100",
             },
             leftButton: {
-                backgroundColor: "red",
+                backgroundColor: "transparent",
                 outline: "none",
                 border: "none",
             },
             rightButton: {
-                backgroundColor: "red",
+                backgroundColor: "transparent",
                 outline: "none",
                 border: "none",
             },
             leftImage: {
-                position:"relative",
-                left: -150+"px",
-                transition: "left 300ms linear",
+                position: "absolute",
+                marginLeft: `${0}px`,
+                zIndex: "50",
+                transition: "margin-left 300ms linear,  z-index 300ms linear",
+
             },
             activeImage: {
-                position:"relative",
-                left: 2*this.props.width+"px",
-                transition: "left 300ms linear",
+                position: "absolute",
+                marginLeft:  `${width}px`,
+                zIndex: "99",
+                transition: "margin-left 300ms linear, z-index 300ms linear",
+
             },
             rightImage: {
-                position:"relative",
-                left: 0+"px",
-                transition: "left 300ms linear",
+                position: "absolute",
+                marginLeft: `${2 * width}px`,
+                zIndex: "50",
+                transition: "margin-left 300ms linear,  z-index 300ms linear",
+
             }
         }
         return (
-            <div style={style.carousel}><div style={style.container}>
+            <div ref={this.refCarousel} style={style.carousel}><div style={style.container}>
                 <button style={style.leftButton} onClick={() => this.increment(-1)}><Icon size="35px" color="white">keyboard_arrow_left</Icon></button>
                 <button style={style.rightButton} onClick={() => this.increment(1)}><Icon size="35px" color="white">keyboard_arrow_right</Icon></button>
             </div>

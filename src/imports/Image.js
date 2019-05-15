@@ -10,7 +10,7 @@ class Image extends React.Component {
       borderRadius = "18px";
     }
     else {
-      borderRadius = "3px";
+      borderRadius = "0px";
     }
     const style = {
       width: this.props.width,

@@ -3,40 +3,36 @@ import PropTypes from 'prop-types';
 import { basic } from "../themes/basic";
 class Table extends React.Component {
     render() {
+        let flexDirection,borderBottom,alignItems;
+        if (this.props.row) {
+            flexDirection="row";
+            borderBottom= "0.5px solid black";
+            alignItems="flex-start";
+        }
+        else{
+            flexDirection="column";
+            borderBottom="none";
+            alignItems="flex-start";
+        }
         const style = {
-            container: {
-                width: this.props.width,
-                height: this.props.height,
-                borderRadius:"2px",
-                overflow: "hidden",
-                display:"flex",
-                flexDirection:"row",
-                backgroundColor:"grey",
-                margin:"10px"
-            },
-            Table: {
-                height:"100%",
-                width:this.props.value+"%",
-                backgroundColor:"red"
-            }
+            display:"flex",
+            margin:"5px",
+            flexDirection,
+            borderBottom,
+            flex:"1",
         }
         return (
-            <div style={style.container}><div style={style.Table}></div>
-            </div>
+            <div style={style}>{this.props.children}</div>
         );
     }
 }
 Table.defaultProps = {
-    height: "4px",
-    width: "250px",
-    theme: basic,
-    elevation: 0
+    row: false,
+    title: false,
 };
 Table.propTypes = {
-    height: PropTypes.string,
-    width: PropTypes.string,
-    theme: PropTypes.object,
-    elevation: PropTypes.number
+    row: PropTypes.bool,
+    title: PropTypes.bool,
 };
 
 export default Table;

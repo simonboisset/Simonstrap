@@ -2,8 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import favicon from "./react.ico"
 import {
-  Div, Body, Icon, Button, Card, Dialog, Drawer,
-  Footer, Header, Input, Item, Menu, Image, Carousel, Progress,Tab,Table
+  Div, Body, Icon, Button, Card, Header, Input,
+  Item, Menu, Image, Carousel, Progress, Table
 } from '../src';
 import { DialogStory, DrawerStory } from './stories';
 storiesOf('Layout', module)
@@ -49,23 +49,50 @@ storiesOf('Icon', module)
       <Icon>alarm</Icon>
     </div>
   ));
-storiesOf('Tab', module)
-  .add('Tab', () => (
-    <div>
-      Tab
-    </div>
-  ))
-  .add('List', () => (
-    <div>
-      Tableau
-    </div>
+storiesOf('Tableau', module)
+  // .add('Tab', () => (
+  //   <div>
+  //     Tab
+  //   </div>
+  // ))
+  .add('Table', () => (
+    <Table>
+      <Table row>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+      </Table>
+      <Table row>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+      </Table>
+      <Table row>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+      </Table>
+      <Table row>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+        <Table>Cellule</Table>
+      </Table>
+    </Table>
   ));
 storiesOf('Image', module)
   .add('Image', () => (
     <Image width="300px" height="200px" src={favicon} />
   ))
   .add('Carousel', () => (
-    <Carousel width="400px" height="200px" images={[favicon, favicon, favicon]} />
+    <Carousel width="400px" height="200px" images={[favicon, favicon, favicon, favicon]} />
   ));
 storiesOf('Form', module)
   .add('Input', () => (
@@ -93,12 +120,12 @@ storiesOf('Form', module)
   .add('Slider', () => (
     <Input type="range" label="Load File" />
   ))
-  // .add('Date', () => (
-  //   <Input type="date" label="Load File" />
-  // ))
-  // .add('Hour', () => (
-  //   <Input type="hour" label="Load File" />
-  // ));
+// .add('Date', () => (
+//   <Input type="date" label="Load File" />
+// ))
+// .add('Hour', () => (
+//   <Input type="hour" label="Load File" />
+// ));
 storiesOf('Menu', module)
   .add('Menu', () => (
     <Menu label="Menu">
