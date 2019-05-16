@@ -4,7 +4,7 @@ class Icon extends React.Component {
   render() {
     const style={
       margin : "0",
-      fontFamily: "Icons",
+      fontFamily: "Material Icons",
       fontWeight: "normal",
       fontStyle: "normal",
       color:this.props.color,

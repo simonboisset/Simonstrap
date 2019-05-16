@@ -2,16 +2,17 @@ var path = require('path');
 module.exports = {
   entry: './src/index.js',
   output: {
-    path: path.join(__dirname, './build'),
+    path: path.join(__dirname, './'),
     filename: 'index.js',
     library: "simonstrap",
     libraryTarget: 'umd',
-    publicPath: '/build/',
+    publicPath: "/",
     umdNamedDefine: true
   },
   resolve: {
     alias: {
-      src: path.resolve(__dirname, 'src')
+      src: path.resolve(__dirname, 'src'),
+      // build:path.resolve(__dirname, 'src')
     }
   },
   module: {
