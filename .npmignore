@@ -1,5 +1,4 @@
 src/
-build/
 static/
 .storybook/
 node_modules/
