@@ -12,7 +12,7 @@ export const basic = {
     },
     color : {
         default : palette(100,100,100),
-        primary : palette(255,193,7),
+        primary : palette(54, 185, 14),
         segondary : palette(195,239,218),
         success : palette(195,239,218),
         warning : palette(195,239,218),

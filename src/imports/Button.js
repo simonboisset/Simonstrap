@@ -31,18 +31,94 @@ class Button extends React.Component {
     else {
       backgroundColor = this.props.color;
     }
-    const style = {
-      margin: "10px",
-      fontSize: "18px",
-      width: this.props.width,
-      height: this.props.height,
-      color: "white",
-      border: "none",
-      borderRadius: this.props.rounded ? this.props.theme.borderRadius.rounded : this.props.theme.borderRadius.default,
-      backgroundColor: backgroundColor,
-      outline: "none",
-      transition: "background-color 300ms, box-shadow 300ms",
-      boxShadow: this.props.theme.elevation[elevation]
+    let style;
+    switch (this.props.type) {
+      case "contained": {
+        style = {
+          margin: "10px",
+          fontSize: "18px",
+          width: this.props.width,
+          height: this.props.height,
+          color: "white",
+          border: "none",
+          borderRadius: this.props.rounded ? this.props.theme.borderRadius.rounded : this.props.theme.borderRadius.default,
+          backgroundColor: backgroundColor,
+          outline: "none",
+          transition: "background-color 300ms, box-shadow 300ms",
+          boxShadow: this.props.theme.elevation[elevation]
+        }
+        break;
+      }
+      case "flat": {
+        style = {
+          margin: "10px",
+          fontSize: "18px",
+          width: this.props.width,
+          height: this.props.height,
+          color: "white",
+          border: "none",
+          borderRadius: this.props.rounded ? this.props.theme.borderRadius.rounded : this.props.theme.borderRadius.default,
+          backgroundColor: backgroundColor,
+          outline: "none",
+          transition: "background-color 300ms, box-shadow 300ms",
+          boxShadow: this.props.theme.elevation[elevation]
+        }
+        break;
+      }
+      case "rounded": {
+        style = {
+          margin: "10px",
+          fontSize: "18px",
+          width: this.props.width,
+          height: this.props.height,
+          color: "white",
+          border: "none",
+          borderRadius: this.props.theme.borderRadius.rounded,
+          backgroundColor: backgroundColor,
+          outline: "none",
+          transition: "background-color 300ms, box-shadow 300ms",
+          boxShadow: this.props.theme.elevation[elevation]
+        }
+        break;
+      }
+      case "icon": {
+        style = {
+          margin: "10px",
+          fontSize: "20px",
+          width: "40px",
+          height: "40px",
+          color: "white",
+          border: "none",
+          borderRadius: "20px",
+          backgroundColor: backgroundColor,
+          outline: "none",
+          transition: "background-color 300ms, box-shadow 300ms",
+          boxShadow: this.props.theme.elevation[elevation],
+          fontFamily: "Material Icons",
+          textTransform: "none",
+          letterSpacing: "normal",
+          wordWrap: "normal",
+          whiteSpace: "nowrap",
+        }
+        break;
+      }
+      default: {
+        style = {
+          margin: "10px",
+          fontSize: "18px",
+          width: this.props.width,
+          height: this.props.height,
+          color: "white",
+          border: "none",
+          borderRadius: this.props.rounded ? this.props.theme.borderRadius.rounded : this.props.theme.borderRadius.default,
+          backgroundColor: backgroundColor,
+          outline: "none",
+          transition: "background-color 300ms, box-shadow 300ms",
+          boxShadow: this.props.theme.elevation[elevation]
+        }
+        break;
+      }
+
     }
     return (
       <button
@@ -72,7 +148,8 @@ Button.propTypes = {
   onClick: PropTypes.func,
   children: PropTypes.string,
   theme: PropTypes.object,
-  elevation: PropTypes.number
+  elevation: PropTypes.number,
+  type: PropTypes.oneOf(["contained", "flat", "rounded", "icon"]),
 };
 
 export default Button;

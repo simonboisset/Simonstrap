@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { basic } from "../themes/basic";
 class Header extends React.Component {
   render() {
     const style={
@@ -12,7 +13,7 @@ class Header extends React.Component {
       height : this.props.height,
       width : "100%",
       zIndex :"990",
-      backgroundColor : this.props.background,
+      backgroundColor : this.props.theme.color.primary.regular,
       boxShadow :'0 3px 6px rgba(0,0,0,0.16)'
     }
     return (<div style={style}>{this.props.children}</div>);
@@ -20,11 +21,13 @@ class Header extends React.Component {
 }
 Header.defaultProps = {
     height:"50px",
-    background:"orange"
+    background:"orange",
+    theme: basic,
 };
 Header.propTypes = {
     height:PropTypes.string,
-    background:PropTypes.string
+    background:PropTypes.string,
+    theme: PropTypes.object,
 };
 
 export default Header;

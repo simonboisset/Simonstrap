@@ -25,7 +25,10 @@ storiesOf('Button', module)
     <Button>Button</Button>
   ))
   .add('Rounded', () => (
-    <Button color="default" rounded>Button</Button>
+    <Button color="default" type="rounded">Button</Button>
+  ))
+  .add('Icon Button', () => (
+    <Button color="default" type="icon">home</Button>
   ));
 storiesOf('Card', module)
   .add('Card', () => (
