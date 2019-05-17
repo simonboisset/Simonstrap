@@ -11,7 +11,7 @@ export const basic = {
         height:"40px"
     },
     color : {
-        default : palette(100,100,100),
+        default : palette(150,150,150),
         primary : palette(54, 185, 14),
         segondary : palette(195,239,218),
         success : palette(195,239,218),

@@ -22,13 +22,22 @@ storiesOf('Layout', module)
   ));
 storiesOf('Button', module)
   .add('Default', () => (
+    <div>
     <Button>Button</Button>
+    <Button variant="flat">Button</Button>
+    </div>
   ))
   .add('Rounded', () => (
+    <div>
     <Button color="default" type="rounded">Button</Button>
+    <Button color="default" variant="flat" type="rounded">Button</Button>
+    </div>
   ))
   .add('Icon Button', () => (
-    <Button color="default" type="icon">home</Button>
+    <div>
+      <Button type="icon">home</Button>
+      <Button variant="flat" type="icon">home</Button>
+    </div>
   ));
 storiesOf('Card', module)
   .add('Card', () => (
