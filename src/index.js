@@ -8,6 +8,7 @@ import Footer from './imports/Footer';
 import Body from './imports/Body';
 import Div from './imports/Div';
 import Menu from './imports/Menu';
+import Collapse from './imports/Collapse';
 import Item from './imports/Item';
 import Icon from './imports/Icon';
 import Drawer from './imports/Drawer';
@@ -18,5 +19,5 @@ import Progress from './imports/Progress';
 import Card from "./imports/Card";
 import Tab from "./imports/Tab";
 import Table from "./imports/Table";
-export {Select,Dialog,Card,Drawer,Input,Image,
+export {Select,Dialog,Card,Drawer,Input,Image,Collapse,
   Button,Icon,Body,Footer,Item,basic,Div,Header,Menu,Carousel,Progress,Tab,Table}

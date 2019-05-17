@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 import favicon from "./react.ico"
 import {
   Div, Body, Icon, Button, Card, Header, Input,
-  Item, Menu, Image, Carousel, Progress, Table
+  Item, Menu, Image, Carousel, Progress, Table, Collapse
 } from '../src';
-import { DialogStory, DrawerStory } from './stories';
+import { DialogStory, DrawerStory ,CollapseStory} from './stories';
 storiesOf('Layout', module)
   .add('Header', () => (
     <Header></Header>
@@ -23,14 +23,14 @@ storiesOf('Layout', module)
 storiesOf('Button', module)
   .add('Default', () => (
     <div>
-    <Button>Button</Button>
-    <Button variant="flat">Button</Button>
+      <Button>Button</Button>
+      <Button variant="flat">Button</Button>
     </div>
   ))
   .add('Rounded', () => (
     <div>
-    <Button color="default" type="rounded">Button</Button>
-    <Button color="default" variant="flat" type="rounded">Button</Button>
+      <Button color="default" type="rounded">Button</Button>
+      <Button color="default" variant="flat" type="rounded">Button</Button>
     </div>
   ))
   .add('Icon Button', () => (
@@ -50,6 +50,9 @@ storiesOf('Dialog', module)
 storiesOf('Drawer', module)
   .add('Drawer', () => (
     <DrawerStory />
+  ))
+  .add('Collapse', () => (
+    <CollapseStory />
   ));
 storiesOf('Icon', module)
   .add('Material', () => (

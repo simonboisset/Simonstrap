@@ -24,7 +24,7 @@ class Icon extends React.Component {
   }
 }
 Icon.defaultProps = {
-  size: "inherit",
+  size: "20px",
   color: "inherit",
 };
 Icon.propTypes = {

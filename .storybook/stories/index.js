@@ -1,3 +1,4 @@
 import DialogStory from './DialogStory';
 import DrawerStory from './DrawerStory';
-export {DialogStory,DrawerStory};
+import CollapseStory from './CollapseStory';
+export {DialogStory,DrawerStory,CollapseStory};

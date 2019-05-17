@@ -86,6 +86,8 @@ class Button extends React.Component {
     const style = {
       margin: "10px",
       fontSize: "20px",
+      fontWeight: "normal",
+      fontStyle: "normal",
       width,
       height,
       color,

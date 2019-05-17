@@ -7,11 +7,12 @@ import InputRange from "./InputRange";
 import InputFile from "./InputFile";
 import InputRadio from "./InputRadio";
 import InputSwipe from "./InputSwipe";
+import InputSelect from "./InputSelect";
 import InputDate from "./InputDate";
 import InputHour from "./InputHour";
 import Label from "./Label";
 import InputCheckbox from './InputCheckbox';
-import {EventEmitter} from 'events';
+import { EventEmitter } from 'events';
 const trigger = new EventEmitter();
 class Input extends React.Component {
     render() {
@@ -25,7 +26,15 @@ class Input extends React.Component {
                 return (
                     <div>
                         {this.props.inputList.map((input) =>
-                            <InputRadio {...this.props} trigger={trigger}  label={input.label} onChange={()=>trigger.emit('change')} />
+                            <InputRadio {...this.props} trigger={trigger} label={input.label} onChange={() => trigger.emit('change')} />
+                        )}
+                    </div>
+                );
+            case "select":
+                return (
+                    <div>
+                        {this.props.inputList.map((input) =>
+                            <InputSelect {...this.props} trigger={trigger} label={input.label} onChange={() => trigger.emit('change')} />
                         )}
                     </div>
                 );
