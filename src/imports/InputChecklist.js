@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { basic } from "../themes/basic";
 import Menu from "./Menu";
 import Item from "./Item";
-class InputSelect extends React.Component {
+import InputCheckbox from "./InputCheckbox";
+class InputChecklist extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -30,13 +31,13 @@ class InputSelect extends React.Component {
             ...this.props.inputList
         ]
         return (
-            <Menu style={style} trigger="Focus" label={list[this.state.index].label} position="Left">
+            <Menu style={style} trigger="Focus" label={this.props.label} position="Left">
                 {this.props.inputList.map((input, index) =>
-                    <Item key={index} onClick={()=>this.handleClick(index)}>{input.label}</Item>
+                    <Item key={index}><InputCheckbox label={input.label} /></Item>
                 )}
             </Menu>
         );
     }
 }
 
-export default InputSelect;
+export default InputChecklist;

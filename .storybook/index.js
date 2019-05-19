@@ -5,7 +5,7 @@ import {
   Div, Body, Icon, Button, Card, Header, Input,
   Item, Menu, Image, Carousel, Progress, Table, Collapse
 } from '../src';
-import { DialogStory, DrawerStory ,CollapseStory} from './stories';
+import { DialogStory, DrawerStory, CollapseStory } from './stories';
 storiesOf('Layout', module)
   .add('Header', () => (
     <Header></Header>
@@ -111,12 +111,12 @@ storiesOf('Image', module)
   ));
 storiesOf('Form', module)
   .add('Input', () => (
-    <div>
+    <Div row>
       <Input label="Top" />
       <Input position="Bottom" label="Bottom" />
       <Input position="Left" label="Left" />
       <Input position="Right" label="Right" />
-    </div>
+    </Div>
   ))
   .add('Input File', () => (
     <Input type="file" label="Load File" />
@@ -128,13 +128,19 @@ storiesOf('Form', module)
     <Input type="swipe" label="Load File" />
   ))
   .add('Select, Radio', () => (
-
     <Input inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="radio" name="test" />
-
+  ))
+  .add('Checkbox list', () => (
+    <Input label="Label" inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="checklist" name="test" />
   ))
   .add('Slider', () => (
     <Input type="range" label="Load File" />
   ))
+  .add('Select', () => (
+    <Div row>
+      <Input inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="select" name="test" />
+      <Input inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="select" name="test" />
+    </Div>));
 // .add('Date', () => (
 //   <Input type="date" label="Load File" />
 // ))

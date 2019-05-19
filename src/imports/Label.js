@@ -43,7 +43,7 @@ class Label extends React.Component {
         }
         return (
             <label style={style}>
-                {this.props.label}
+                <div style={{margin:"10px"}}>{this.props.label}</div>
                 {this.props.children}
             </label>
         );

@@ -12,7 +12,7 @@ class DialogStory extends React.Component {
         <div>
             <Button onClick={()=>this.setState({active : !this.state.active})}>Toogle</Button>
             <Dialog onClose={()=>this.setState({active : false})} active={this.state.active}>
-                Coucou
+                Dialog
             </Dialog>
         </div>
         );

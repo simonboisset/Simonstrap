@@ -32,7 +32,7 @@ class InputCheckbox extends React.Component {
             transition: "background-color 300ms"
         }
         return (
-            <Label label={this.props.label} position="Left">
+            <Label label={this.props.label} position="Right">
                 <input type="checkbox" onChange={(event) => this.setState({ value: event.target.checked })}
                     style={{ display: "none" }}
                 />
@@ -41,5 +41,4 @@ class InputCheckbox extends React.Component {
         );
     }
 }
-
 export default InputCheckbox;

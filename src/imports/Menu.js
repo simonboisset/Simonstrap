@@ -96,7 +96,8 @@ class Menu extends React.Component {
         const style = {
             container: {
                 outline: "none",
-                border: "none",
+                width: this.props.width,
+                ...this.props.style
             },
             menuBox: {
                 margin: "0",
