@@ -24,6 +24,7 @@ class InputChecklist extends React.Component {
             fontStyle: "normal",
             border: "solid black 1px",
             borderRadius: "8px",
+            width:basic.size.width,
             ...this.props.style
         }
         const list = [
@@ -33,11 +34,16 @@ class InputChecklist extends React.Component {
         return (
             <Menu style={style} trigger="Focus" label={this.props.label} position="Left">
                 {this.props.inputList.map((input, index) =>
-                    <Item key={index}><InputCheckbox label={input.label} /></Item>
+                    <Item key={index}><InputCheckbox style={{width:"100%",height:"100%"}} label={input.label} /></Item>
                 )}
             </Menu>
         );
     }
 }
-
+InputChecklist.defaultProps = {
+    width: basic.size.width,
+};
+InputChecklist.propTypes = {
+    width: PropTypes.string,
+};
 export default InputChecklist;

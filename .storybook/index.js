@@ -138,8 +138,8 @@ storiesOf('Form', module)
   ))
   .add('Select', () => (
     <Div row>
-      <Input inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="select" name="test" />
-      <Input inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="select" name="test" />
+      <Input label="Label" inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="select" name="test" />
+      <Input label="Label" inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="select" name="test" />
     </Div>));
 // .add('Date', () => (
 //   <Input type="date" label="Load File" />

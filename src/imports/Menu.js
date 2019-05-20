@@ -96,7 +96,6 @@ class Menu extends React.Component {
         const style = {
             container: {
                 outline: "none",
-                width: this.props.width,
                 ...this.props.style
             },
             menuBox: {
@@ -110,7 +109,7 @@ class Menu extends React.Component {
                 border: "none",
             },
             itemBox: {
-                width: this.props.width,
+                width: this.props.itemWidth,
                 position: "absolute",
                 opacity: opacity,
                 margin: margin,
@@ -147,8 +146,8 @@ class Menu extends React.Component {
     }
 }
 Menu.defaultProps = {
-    width: basic.size.width,
     height: basic.size.height,
+    itemWidth:basic.size.width,
     color: "primary",
     theme: basic,
     direction: "Bottom",

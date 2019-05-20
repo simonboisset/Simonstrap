@@ -25,6 +25,7 @@ class Item extends React.Component {
     const style = {
         margin: "0",
         height:this.props.height,
+        width:"100%",
         display: "flex",
         padding:this.props.padding,
         alignItems:"center",
@@ -46,7 +47,6 @@ class Item extends React.Component {
   }
 }
 Item.defaultProps = {
-  width: basic.size.width,
   height: basic.size.height,
   color: "primary",
   elevation: 2,
@@ -54,7 +54,6 @@ Item.defaultProps = {
   theme: basic,
 };
 Item.propTypes = {
-  width: PropTypes.string,
   height: PropTypes.string,
   color: PropTypes.string,
   onClick: PropTypes.func,

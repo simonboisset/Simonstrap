@@ -39,7 +39,8 @@ class Label extends React.Component {
             display: "flex",
             justifyContent,
             alignItems,
-            flexDirection
+            flexDirection,
+            ...this.props.style
         }
         return (
             <label style={style}>
