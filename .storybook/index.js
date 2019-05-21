@@ -213,3 +213,50 @@ storiesOf('Progress', module)
   //     Circle
   //   </div>
   // ));
+  storiesOf('Full Page', module)
+  .add('Page 1', () => (
+    <Body>
+      <Header>
+      <Div row>
+        <Menu padding="5px 5px 5px 10px" label={<Icon>menu</Icon>}>
+          <Menu direction="Right" label="Right"><Item>Item</Item></Menu>
+          <Menu direction="Right" label="Orientation">
+            <Menu direction="Right" label="Bottom">
+              <Item>Item</Item>
+              <Item>Item</Item>
+              <Item>Item</Item>
+              <Item>Item</Item>
+            </Menu>
+            <Menu direction="Right" orientation="Top" label="Top">
+              <Item>Item</Item>
+              <Item>Item</Item>
+              <Item>Item</Item>
+            </Menu>
+          </Menu>
+          <Item>Item</Item>
+        </Menu>
+        <Menu label="Clic" trigger="Focus">
+          <Menu direction="Right" trigger="Focus" label="Right"><Item>Item</Item></Menu>
+          <Item>Item</Item></Menu>
+      </Div>
+      <Div row>
+        <Menu direction="Bottom" orientation="Left" label="Left">
+          <Item>Item</Item>
+        </Menu>
+        <Menu direction="Bottom" orientation="Right" label="Right">
+          <Menu direction="Right" label="Right"><Item>Item</Item></Menu>
+          <Menu direction="Left" label="Left">
+            <Menu direction="Bottom" label="Bottom">
+              <Menu direction="Left" label="Left">
+                <Menu direction="Top" label="Top"><Item>Item</Item></Menu>
+              </Menu>
+            </Menu>
+          </Menu>
+        </Menu>
+      </Div>
+      <Div>
+        <Menu padding="5px 10px 5px 5px" direction="Bottom" orientation="Left" label={<Icon>person</Icon>}><Item>Item</Item></Menu>
+      </Div>
+    </Header>
+    </Body>
+  ))

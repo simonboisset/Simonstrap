@@ -19,7 +19,10 @@ class Menu extends React.Component {
         if (this.refContainer.current && this.refItem.current) {
             container= this.refContainer.current.getBoundingClientRect();
             item= this.refItem.current.getBoundingClientRect();
-            // item.width=item.width+5;
+            // item.width=item.width-5;
+            // item.height=item.height+5;
+            // container.width=container.width-10;
+            // container.height=container.height+5;
         }
         else{
             container= {width:0,height:0}
@@ -29,7 +32,7 @@ class Menu extends React.Component {
         let marginMax, marginMin;
         switch (this.props.direction) {
             case "Top": {
-                padding = "0px 0px 3px 0px";
+                padding = "0px 3px 3px 0px";
                 if (this.props.orientation === "Left") {
                     marginMin = `-${container.height + item.height}px 0px 0px ${container.width-item.width}px`;
                     marginMax = `-${container.height + item.height + 25}px 0px 0px ${container.width-item.width}px`;
@@ -41,7 +44,7 @@ class Menu extends React.Component {
                 break;
             }
             case "Bottom": {
-                padding = "3px 0px 0px 0px";
+                padding = "3px 3px 0px 0px";
                 if (this.props.orientation === "Left") {
                     marginMin = `0px 0px 0px ${container.width-item.width}px`;
                     marginMax = `25px 0px 0px ${container.width-item.width}px`;
@@ -96,6 +99,7 @@ class Menu extends React.Component {
         const style = {
             container: {
                 outline: "none",
+                zIndex:"800",
                 ...this.props.style
             },
             menuBox: {

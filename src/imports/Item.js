@@ -24,6 +24,7 @@ class Item extends React.Component {
     }
     const style = {
         margin: "0",
+        zIndex:"801",
         height:this.props.height,
         width:"100%",
         display: "flex",
