@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import favicon from "./react.ico"
 import {
   Div, Body, Icon, Button, Card, Header, Input,
-  Item, Menu, Image, Carousel, Progress, Table, Collapse
+  Item, Menu, Image, Carousel, Progress, Table, Collapse, Footer
 } from '../src';
 import { DialogStory, DrawerStory, CollapseStory } from './stories';
 storiesOf('Layout', module)
@@ -208,55 +208,85 @@ storiesOf('Progress', module)
       <Progress value={70} />
     </div>
   ))
-  // .add('Circle', () => (
-  //   <div>
-  //     Circle
-  //   </div>
-  // ));
-  storiesOf('Full Page', module)
+// .add('Circle', () => (
+//   <div>
+//     Circle
+//   </div>
+// ));
+storiesOf('Full Page', module)
   .add('Page 1', () => (
     <Body>
       <Header>
-      <Div row>
-        <Menu padding="5px 5px 5px 10px" label={<Icon>menu</Icon>}>
-          <Menu direction="Right" label="Right"><Item>Item</Item></Menu>
-          <Menu direction="Right" label="Orientation">
-            <Menu direction="Right" label="Bottom">
-              <Item>Item</Item>
-              <Item>Item</Item>
-              <Item>Item</Item>
-              <Item>Item</Item>
-            </Menu>
-            <Menu direction="Right" orientation="Top" label="Top">
-              <Item>Item</Item>
-              <Item>Item</Item>
-              <Item>Item</Item>
-            </Menu>
-          </Menu>
-          <Item>Item</Item>
-        </Menu>
-        <Menu label="Clic" trigger="Focus">
-          <Menu direction="Right" trigger="Focus" label="Right"><Item>Item</Item></Menu>
-          <Item>Item</Item></Menu>
-      </Div>
-      <Div row>
-        <Menu direction="Bottom" orientation="Left" label="Left">
-          <Item>Item</Item>
-        </Menu>
-        <Menu direction="Bottom" orientation="Right" label="Right">
-          <Menu direction="Right" label="Right"><Item>Item</Item></Menu>
-          <Menu direction="Left" label="Left">
-            <Menu direction="Bottom" label="Bottom">
-              <Menu direction="Left" label="Left">
-                <Menu direction="Top" label="Top"><Item>Item</Item></Menu>
+        <Div row align="center">
+          <Menu padding="5px 5px 5px 10px" label={<Icon>menu</Icon>}>
+            <Menu direction="Right" label="Right"><Item>Item</Item></Menu>
+            <Menu direction="Right" label="Orientation">
+              <Menu direction="Right" label="Bottom">
+                <Item>Item</Item>
+                <Item>Item</Item>
+                <Item>Item</Item>
+                <Item>Item</Item>
+              </Menu>
+              <Menu direction="Right" orientation="Top" label="Top">
+                <Item>Item</Item>
+                <Item>Item</Item>
+                <Item>Item</Item>
               </Menu>
             </Menu>
+            <Item>Item</Item>
           </Menu>
-        </Menu>
+          <Div text="h1">Title</Div>
+        </Div>
+        <Div row align="center">
+          <Button variant="flat" color="inherit" type="icon">home</Button>
+          <Button variant="flat" color="inherit" type="icon">person</Button>
+          <Menu padding="5px 10px 5px 5px" direction="Bottom" orientation="Left" label={<Icon>person</Icon>}><Item>Item</Item></Menu>
+          <Button variant="flat" color="inherit" type="icon">home</Button>
+          <Menu padding="5px 10px 5px 5px" direction="Bottom" orientation="Left" label={<Icon>home</Icon>}><Item>Item</Item></Menu>
+          <Menu padding="5px 10px 5px 5px" direction="Bottom" orientation="Left" label={<Icon>person</Icon>}><Item>Item</Item></Menu>
+        </Div>
+      </Header>
+      <Div align="center" margin="25px">
+        <Div text="h1">Formulaire</Div>
+        <Div row>
+          <Input label="Label" inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="select" name="test" />
+          <Input label="Label" inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="select" name="test" />
+          <Input label="Label" inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="checklist" name="test" />
+          <Input label="Label" type="text" />
+        </Div>
+        <Div row>
+          <Table>
+            <Table row>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+            </Table>
+            <Table row>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+            </Table>
+            <Table row>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+            </Table>
+            <Table row>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+              <Table>Cellule</Table>
+            </Table>
+          </Table>
+        </Div>
       </Div>
-      <Div>
-        <Menu padding="5px 10px 5px 5px" direction="Bottom" orientation="Left" label={<Icon>person</Icon>}><Item>Item</Item></Menu>
-      </Div>
-    </Header>
+      <Footer>Footer</Footer>
     </Body>
   ))

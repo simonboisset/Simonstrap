@@ -11,22 +11,22 @@ class Menu extends React.Component {
             hover: false,
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         this.forceUpdate();
     }
     render() {
-        let container,item;
+        let container, item;
         if (this.refContainer.current && this.refItem.current) {
-            container= this.refContainer.current.getBoundingClientRect();
-            item= this.refItem.current.getBoundingClientRect();
+            container = this.refContainer.current.getBoundingClientRect();
+            item = this.refItem.current.getBoundingClientRect();
             // item.width=item.width-5;
             // item.height=item.height+5;
             // container.width=container.width-10;
             // container.height=container.height+5;
         }
-        else{
-            container= {width:0,height:0}
-            item= {width:0,height:0}
+        else {
+            container = { width: 0, height: 0 }
+            item = { width: 0, height: 0 }
         }
         let opacity, margin, visibility, padding;
         let marginMax, marginMin;
@@ -34,8 +34,8 @@ class Menu extends React.Component {
             case "Top": {
                 padding = "0px 3px 3px 0px";
                 if (this.props.orientation === "Left") {
-                    marginMin = `-${container.height + item.height}px 0px 0px ${container.width-item.width}px`;
-                    marginMax = `-${container.height + item.height + 25}px 0px 0px ${container.width-item.width}px`;
+                    marginMin = `-${container.height + item.height}px 0px 0px ${container.width - item.width}px`;
+                    marginMax = `-${container.height + item.height + 25}px 0px 0px ${container.width - item.width}px`;
                 }
                 else {
                     marginMin = `-${container.height + item.height}px 0px 0px 0px`;
@@ -44,14 +44,15 @@ class Menu extends React.Component {
                 break;
             }
             case "Bottom": {
-                padding = "3px 3px 0px 0px";
                 if (this.props.orientation === "Left") {
-                    marginMin = `0px 0px 0px ${container.width-item.width}px`;
-                    marginMax = `25px 0px 0px ${container.width-item.width}px`;
+                    marginMin = `0px 0px 0px ${container.width - item.width}px`;
+                    marginMax = `25px 0px 0px ${container.width - item.width}px`;
+                    padding = "3px 0px 0px 3px";
                 }
                 else {
                     marginMin = `0px 0px 0px 0px`;
                     marginMax = `25px 0px 0px 0px`;
+                    padding = "3px 3px 0px 0px";
                 }
                 break;
             }
@@ -86,7 +87,7 @@ class Menu extends React.Component {
                 marginMax = "25px 0px 0px 0px";
                 break;
         }
-        if ((this.state.hover && this.props.trigger==="Hover") ||(this.state.focus && this.props.trigger==="Focus") ) {
+        if ((this.state.hover && this.props.trigger === "Hover") || (this.state.focus && this.props.trigger === "Focus")) {
             visibility = "visible";
             opacity = "1";
             margin = marginMin;
@@ -99,7 +100,7 @@ class Menu extends React.Component {
         const style = {
             container: {
                 outline: "none",
-                zIndex:"800",
+                zIndex: "800",
                 ...this.props.style
             },
             menuBox: {
@@ -138,7 +139,7 @@ class Menu extends React.Component {
                 tabIndex="0"
                 ref={this.refContainer}
                 onMouseEnter={() => this.setState({ hover: true })}
-                onMouseLeave={() => this.setState({ hover: false})}
+                onMouseLeave={() => this.setState({ hover: false })}
                 onFocus={() => this.setState({ focus: true })}
                 onBlur={() => this.setState({ focus: false })}
                 style={style.container}
@@ -151,17 +152,17 @@ class Menu extends React.Component {
 }
 Menu.defaultProps = {
     height: basic.size.height,
-    itemWidth:basic.size.width,
+    itemWidth: basic.size.width,
     color: "primary",
     theme: basic,
     direction: "Bottom",
     trigger: "Hover",
-    padding:"5px 5px 5px 5px",
+    padding: "5px 5px 5px 5px",
 };
 Menu.propTypes = {
     width: PropTypes.string,
     height: PropTypes.string,
-    padding:PropTypes.string,
+    padding: PropTypes.string,
     label: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.element

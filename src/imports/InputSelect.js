@@ -18,13 +18,12 @@ class InputSelect extends React.Component {
     render() {
 
         const style = {
-            margin: "10px",
-            fontSize: "20px",
-            fontWeight: "normal",
-            fontStyle: "normal",
-            border: "solid black 1px",
-            borderRadius: "8px",
-            width:basic.size.width,
+            fontSize: "18px",
+            width: this.props.width,
+            height: this.props.height,
+            borderRadius: "3px",
+            border: "1px solid rgb(150,150,150)",
+            color: "rgb(100,100,100)",
             ...this.props.style
         }
         const list = [

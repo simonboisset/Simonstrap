@@ -21,6 +21,10 @@ class Body extends React.Component {
   render() {
     const style={
       margin:"0px",
+      display:"flex",
+      flexDirection:"column",
+      alignItems:"center",
+      justifyContent:"space-between",
       width:this.state.width+"px",
       height:this.state.height+"px",
       ...this.props.style
