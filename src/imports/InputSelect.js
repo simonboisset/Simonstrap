@@ -32,11 +32,11 @@ class InputSelect extends React.Component {
         ]
         return (
             <Label label={this.props.label}>
-            <Menu style={style} trigger="Focus" label={list[this.state.index].label} position="Left">
-                {this.props.inputList.map((input, index) =>
-                    <Item key={index} onClick={()=>this.handleClick(index)}>{input.label}</Item>
-                )}
-            </Menu>
+                <Menu style={style} trigger="Focus" label={list[this.state.index].label} position="Left">
+                    {this.props.inputList.map((input, index) =>
+                        <Item key={index} onClick={() => this.handleClick(index)}>{input.label}</Item>
+                    )}
+                </Menu>
             </Label>
         );
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import favicon from "./react.ico"
 import {
-  Div, Body, Icon, Button, Card, Header, Input,
+  App, Div, Body, Icon, Button, Card, Header, Input,
   Item, Menu, Image, Carousel, Progress, Table, Collapse, Footer
 } from '../src';
 import { DialogStory, DrawerStory, CollapseStory } from './stories';
@@ -215,7 +215,7 @@ storiesOf('Progress', module)
 // ));
 storiesOf('Full Page', module)
   .add('Page 1', () => (
-    <Body>
+    <App>
       <Header>
         <Div row align="center">
           <Menu padding="5px 5px 5px 10px" label={<Icon>menu</Icon>}>
@@ -235,7 +235,7 @@ storiesOf('Full Page', module)
             </Menu>
             <Item>Item</Item>
           </Menu>
-          <Div text="h1">Title</Div>
+          <Div text="h1" margin="10px">Title</Div>
         </Div>
         <Div row align="center">
           <Button variant="flat" color="inherit" type="icon">home</Button>
@@ -246,7 +246,7 @@ storiesOf('Full Page', module)
           <Menu padding="5px 10px 5px 5px" direction="Bottom" orientation="Left" label={<Icon>person</Icon>}><Item>Item</Item></Menu>
         </Div>
       </Header>
-      <Div align="center" margin="25px">
+      <Body>
         <Div text="h1">Formulaire</Div>
         <Div row>
           <Input label="Label" inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="select" name="test" />
@@ -254,39 +254,37 @@ storiesOf('Full Page', module)
           <Input label="Label" inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="checklist" name="test" />
           <Input label="Label" type="text" />
         </Div>
-        <Div row>
-          <Table>
-            <Table row>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-            </Table>
-            <Table row>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-            </Table>
-            <Table row>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-            </Table>
-            <Table row>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-              <Table>Cellule</Table>
-            </Table>
+        <Table>
+          <Table title row>
+            <Table>Cellule</Table>
+            <Table>Cellule</Table>
+            <Table>Cellule</Table>
+            <Table>Cellule</Table>
+            <Table>Cellule</Table>
           </Table>
-        </Div>
-      </Div>
+          <Table row>
+            <Table title>Cellule</Table>
+            <Table>Cellule</Table>
+            <Table>Cellule</Table>
+            <Table>Cellule</Table>
+            <Table>Cellule</Table>
+          </Table>
+          <Table row>
+            <Table title>Cellule</Table>
+            <Table>Cellule</Table>
+            <Table>Cellule</Table>
+            <Table>Cellule</Table>
+            <Table>Cellule</Table>
+          </Table>
+          <Table row>
+            <Table title>Cellule</Table>
+            <Table>Cellule</Table>
+            <Table>Cellule</Table>
+            <Table>Cellule</Table>
+            <Table>Cellule</Table>
+          </Table>
+        </Table>
+      </Body>
       <Footer>Footer</Footer>
-    </Body>
+    </App>
   ))

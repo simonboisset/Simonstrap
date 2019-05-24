@@ -1,4 +1,5 @@
 import "./imports/style.css";
+import App from "./imports/App";
 import {basic} from './themes/basic';
 import Button from './imports/Button';
 import Input from './imports/Input';
@@ -19,5 +20,5 @@ import Progress from './imports/Progress';
 import Card from "./imports/Card";
 import Tab from "./imports/Tab";
 import Table from "./imports/Table";
-export {Select,Dialog,Card,Drawer,Input,Image,Collapse,
+export {App,Select,Dialog,Card,Drawer,Input,Image,Collapse,
   Button,Icon,Body,Footer,Item,basic,Div,Header,Menu,Carousel,Progress,Tab,Table}

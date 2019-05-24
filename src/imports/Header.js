@@ -4,6 +4,7 @@ import { basic } from "../themes/basic";
 class Header extends React.Component {
   render() {
     const style={
+      padding:"10px",
       display : "flex",
       position :"relative",
       flexDirection : "row",

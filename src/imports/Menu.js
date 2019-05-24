@@ -104,7 +104,7 @@ class Menu extends React.Component {
                 ...this.props.style
             },
             menuBox: {
-                margin: "0",
+                margin: "0px 10px 0px 10px",
                 height: this.props.height,
                 display: "flex",
                 padding: this.props.padding,
