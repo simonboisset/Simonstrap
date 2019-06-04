@@ -58,7 +58,6 @@ Item.propTypes = {
   height: PropTypes.string,
   color: PropTypes.string,
   onClick: PropTypes.func,
-  children: PropTypes.string,
   theme: PropTypes.object,
 };
 

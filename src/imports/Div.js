@@ -87,7 +87,7 @@ Div.propTypes = {
     background:PropTypes.string,
     container:PropTypes.string,
     image:PropTypes.string,
-    wrap:PropTypes.string,
+    wrap:PropTypes.bool,
     theme: PropTypes.object,
 };
 
