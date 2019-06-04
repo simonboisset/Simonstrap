@@ -33,7 +33,8 @@ class InputCheckbox extends React.Component {
         }
         return (
             <Label style={this.props.style} label={this.props.label} position="Right">
-                <input type="checkbox" onChange={(event) => this.setState({ value: event.target.checked })}
+                <input type="checkbox" onChange={(event) => {this.setState({ value: event.target.checked });
+                this.props.onChange(event.target.checked)}}
                     style={{ display: "none" }}
                 />
                 <div style={style}><Icon style={{ fontSize: "15px" }}>done</Icon></div>

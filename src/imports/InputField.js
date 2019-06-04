@@ -21,7 +21,7 @@ class InputField extends React.Component {
             color: "rgb(100,100,100)",
             outline: "none",
         }
-        return (<Label position={this.props.position} label={this.props.label}><input {...this.props} style={style} /></Label>);
+        return (<Label position={this.props.position} label={this.props.label}><input {...this.props} onChange={(event)=>this.props.onChange(event.target.value)} style={style} /></Label>);
     }
 }
 InputField.defaultProps = {

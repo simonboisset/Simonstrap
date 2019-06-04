@@ -9,12 +9,19 @@ class InputChecklist extends React.Component {
     constructor() {
         super();
         this.state = {
-            index: 0
+            value: []
         }
     }
-    handleClick = (index) => {
-        document.activeElement.blur()
-        this.setState({ index: index + 1 });
+    handlChange = (index,value) => {
+        let list=this.state.value;
+        if (value) {
+            list.push(this.props.inputList[index].label)
+        }
+        else{
+            list = list.filter(state => state !== this.props.inputList[index].label)
+        }
+        this.setState({value:list})
+        this.props.onChange(list)
     }
     render() {
 
@@ -27,18 +34,15 @@ class InputChecklist extends React.Component {
             color: "rgb(100,100,100)",
             ...this.props.style
         }
-        const list = [
-            { label: "" },
-            ...this.props.inputList
-        ]
         return (
-            <Label label={this.props.label}>
+            <div style={{ margin: "10px", display: "flex", flexDirection: "column" }}>
+                <div style={{ margin: "10px" }}>{this.props.label}</div>
                 <Menu style={style} trigger="Focus" label="Select" position="Left">
                     {this.props.inputList.map((input, index) =>
-                        <Item key={index}><InputCheckbox style={{ width: "100%", height: "100%" }} label={input.label} /></Item>
+                        <Item key={index}><InputCheckbox style={{ width: "100%", height: "100%" }} onChange={(value)=>this.handlChange(index,value)} label={input.label} /></Item>
                     )}
                 </Menu>
-            </Label>
+            </div>
         );
     }
 }

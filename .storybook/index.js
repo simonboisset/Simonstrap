@@ -5,7 +5,7 @@ import {
   App, Div, Body, Icon, Button, Card, Header, Input,
   Item, Menu, Image, Carousel, Progress, Table, Collapse, Footer
 } from '../src';
-import { DialogStory, DrawerStory, CollapseStory } from './stories';
+import { StoryForm,DialogStory, DrawerStory, CollapseStory } from './stories';
 storiesOf('Layout', module)
   .add('Header', () => (
     <Header></Header>
@@ -140,13 +140,15 @@ storiesOf('Form', module)
     <Div row>
       <Input label="Label" inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="select" name="test" />
       <Input label="Label" inputList={[{ label: "Value 1" }, { label: "Value 2" }, { label: "Value 3" }, { label: "Value 4" }]} type="select" name="test" />
-    </Div>));
+    </Div>))
 // .add('Date', () => (
 //   <Input type="date" label="Load File" />
 // ))
 // .add('Hour', () => (
 //   <Input type="hour" label="Load File" />
 // ));
+.add('Formulaire', () => (
+  <StoryForm/>));
 storiesOf('Menu', module)
   .add('Menu', () => (
     <Menu label="Menu">

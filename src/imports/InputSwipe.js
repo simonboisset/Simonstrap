@@ -43,7 +43,8 @@ class InputSwipe extends React.Component {
     }
     return (
         <Label label={this.props.label} position="Left">
-            <input type="checkbox" onChange={(event) => this.setState({ value: event.target.checked })}
+            <input type="checkbox" onChange={(event) => {this.setState({ value: event.target.checked });
+            this.props.onChange(event.target.checked)}}
                 style={{ display: "none" }}
             />
             <div style={style.swipe} {...this.props}><div style={style.swipeButton} /></div>

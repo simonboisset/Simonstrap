@@ -14,6 +14,7 @@ class InputSelect extends React.Component {
     handleClick = (index) => {
         document.activeElement.blur()
         this.setState({ index: index + 1 });
+        this.props.onChange(this.props.inputList[index].label)
     }
     render() {
 

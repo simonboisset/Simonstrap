@@ -51,7 +51,7 @@ class InputRadio extends React.Component {
                     ref={input => this.refInput = input}
                     type={this.props.type}
                     name={this.props.name}
-                    onChange={()=>this.props.onChange()}
+                    onChange={this.props.onChange}
                     style={{ display: "none" }}
                 />
                 <div style={style.radio} ><div style={style.radioButton} /></div>
