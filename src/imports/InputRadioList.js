@@ -16,7 +16,7 @@ class InputSelect extends React.Component {
                 {this.props.inputList.map((input,index) =>
                     <InputRadio key={index} {...this.props} trigger={trigger} label={input.label} onChange={() => {
                         trigger.emit('change');
-                        this.props.onChange(input.label)
+                        this.props.onChange(input.value)
                     }} />
                 )}
             </div>

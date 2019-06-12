@@ -13,12 +13,13 @@ class InputChecklist extends React.Component {
         }
     }
     handlChange = (index,value) => {
+        // value vaut true ou false du checkbox
         let list=this.state.value;
         if (value) {
-            list.push(this.props.inputList[index].label)
+            list.push(this.props.inputList[index].value)
         }
         else{
-            list = list.filter(state => state !== this.props.inputList[index].label)
+            list = list.filter(state => state !== this.props.inputList[index].value)
         }
         this.setState({value:list})
         this.props.onChange(list)

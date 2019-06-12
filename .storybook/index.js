@@ -23,7 +23,7 @@ storiesOf('Layout', module)
 storiesOf('Button', module)
   .add('Default', () => (
     <div>
-      <Button>Button</Button>
+      <Button onClick={()=>console.log("hello")}>Button</Button>
       <Button variant="flat">Button</Button>
     </div>
   ))
