@@ -50,7 +50,7 @@ Div.defaultProps = {
     justify: 'flex-start',
     align: 'center',
     wrap: true,
-    width: "auto",
+    width: "100%",
     minHeight: "auto",
     height: "auto",
     xs: "none",

@@ -1,8 +1,12 @@
 import React from 'react';
-import { Div } from '../../package'
+import { AppBar, AppContainer, Div } from '../../package'
 export default function App(props: any) {
   return (
-    <Div height="100vh" backgroundColor="red">Coucou</Div>
+    <AppContainer
+      header={<AppBar>Coucou</AppBar>}
+      body={<Div backgroundColor="green">Body</Div>}
+      footer={<Div backgroundColor="green">Footer</Div>}
+    />
   );
 }
 
