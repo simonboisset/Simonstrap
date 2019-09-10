@@ -1,0 +1,27 @@
+{
+  "name": "website",
+  "version": "0.1.0",
+  "description": "",
+  "dependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "^3.1.1"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "style-loader": "^1.0.0",
+    "typescript": "^3.6.2",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production"
+  },
+  "author": "Simon Boisset"
+}

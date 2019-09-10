@@ -1,6 +1,0 @@
-src/
-static/
-.storybook/
-node_modules/
-.babelrc
-webpack.config.js
