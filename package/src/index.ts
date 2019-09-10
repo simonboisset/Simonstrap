@@ -11,7 +11,7 @@ import Div from './components/Div';
 // import Menu from './components/Menu';
 // import Collapse from './components/Collapse';
 // import Item from './components/Item';
-// import Icon from './components/Icon';
+import Icon from './components/Icon';
 // import Drawer from './components/Drawer';
 // import Dialog from './components/Dialog';
 // import Image from './components/Image';
@@ -21,5 +21,5 @@ import Div from './components/Div';
 // import Tab from "./components/Tab";
 // import Table from "./components/Table";
 export {
-   AppBar, AppContainer, Body, Div, Footer
+   AppBar, AppContainer, Body, Div, Footer, Icon
 }
