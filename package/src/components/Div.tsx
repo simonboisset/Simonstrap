@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Props {
+export interface Props {
     children: React.ReactNodeArray | React.ReactNode,
     justify: "center" | "flex-start" | "flex-end" | "space-around" | "space-between",
     align: "center" | "flex-start" | "flex-end" | "space-around" | "spac-between",
@@ -17,13 +17,18 @@ interface Props {
     id:string | undefined,
     padding:string,
     position:"static" | "absolute" | "relative"| "fixed",
-    style: React.CSSProperties
+    style: React.CSSProperties,
+    elevation:number,
+    borderRadius : string
 }
 
 export default function Div(props: Props) {
     const style: React.CSSProperties = {
         display: "flex",
         top:"0",
+        fontFamily: "Roboto",
+        borderRadius:props.borderRadius,
+        boxShadow:`0 ${props.elevation}px ${2*props.elevation}px rgba(0,0,0,0.${8*props.elevation})`,
         flexDirection: props.direction,
         boxSizing: "border-box",
         flexWrap: props.wrap ? "wrap" : "nowrap",
@@ -62,5 +67,7 @@ Div.defaultProps = {
     id:undefined,
     padding:"0",
     position:"static",
-    margin: "0"
+    margin: "0",
+    elevation:0,
+    borderRadius: "0"
 };

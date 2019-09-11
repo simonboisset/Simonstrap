@@ -1,138 +1,74 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { basic } from "../themes/basic";
-class Button extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      click: false,
-      hover: false
-    }
+export interface Props {
+  width: string,
+  height: string,
+  backgroundColor: string,
+  onClick: Function,
+  children: string,
+  elevation: number,
+  variant: "contained" | "default",
+  type: "default" | "rounded" | "icon",
+  style: React.CSSProperties
+}
+
+export default function Button(props: Props) {
+  const [click, setClick] = React.useState(false);
+  const [hover, setHover] = React.useState(false);
+  const [style, setStyle] = React.useState({});
+  function setAll(value: boolean) {
+    setHover(value);
+    setClick(value);
   }
-  color() {
-    if (this.props.theme.color.hasOwnProperty(this.props.color)) {
-      return this.props.theme.color[this.props.color].regular;
+  React.useEffect(() => {
+    let elevation: number;
+    if (click) {
+      elevation = props.elevation;
     }
     else {
-      return this.props.color;
-    }
-  }
-  flatColor(){
-    if (this.state.click) {
-      return "rgba(0,0,0,0)";
-    }
-    else {
-      if (this.state.hover) {
-        return "rgba(0,0,0,0.12)";
+      if (hover) {
+        elevation = props.elevation + 1;
       }
       else {
-        return "rgba(0,0,0,0)";
+        elevation = props.elevation;
       }
     }
-    
-  }
-  elevation() {
-    if (this.state.click) {
-      return this.props.elevation;
-    }
-    else {
-      if (this.state.hover) {
-        return this.props.elevation + 1;
-      }
-      else {
-        return this.props.elevation;
-      }
-    }
-  }
-  render() {
-    let backgroundColor, elevation, width, height, color, fontFamily, borderRadius;
-    switch (this.props.type) {
-      case "rounded": {
-        width = "150px";
-        height = "30px";
-        borderRadius = "15px";
-        fontFamily = "Roboto";
-        break;
-      }
-      case "icon": {
-        width = "40px";
-        height = "40px";
-        borderRadius = "20px";
-        fontFamily = "Material Icons";
-        break;
-      }
-      default: {
-        width = "150px";
-        height = "30px";
-        borderRadius = "3px";
-        fontFamily = "Roboto";
-        break;
-      }
-    }
-    switch (this.props.variant) {
-      case "flat": {
-        backgroundColor = this.flatColor();
-        color = this.color();
-        elevation=0;
-        break;
-      }
-      default: {
-        color = "white";
-        backgroundColor = this.color();
-        elevation=this.elevation();
-        break;
-      }
-    }
-    const style = {
+    setStyle({
       margin: "10px",
       fontSize: "20px",
-      fontWeight: "normal",
       fontStyle: "normal",
-      width,
-      height,
-      color,
+      width: props.width,
+      height: props.height,
+      color: "white",
       border: "none",
-      borderRadius,
-      backgroundColor,
+      borderRadius: "3px",
+      backgroundColor: props.backgroundColor,
       outline: "none",
       transition: "background-color 300ms, box-shadow 300ms",
-      boxShadow: this.props.theme.elevation[elevation],
-      fontFamily,
-      ...this.props.style
-    }
-    return (
-      <button
-        style={style}
-        onMouseEnter={() => this.setState({ hover: true })}
-        onMouseLeave={() => this.setState({ hover: false, click: false })}
-        onMouseUp={() => this.setState({ click: false })}
-        onMouseDown={() => this.setState({ click: true })}
-        onClick={this.props.onClick}
-      >
-        {this.props.children}
-      </button>
-    );
-  }
+      boxShadow: `0 ${elevation}px ${2 * elevation}px rgba(0,0,0,0.${8 * elevation})`,
+      ...props.style
+    });
+  }, [click, hover]);
+
+  return (
+    <button
+      style={style}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setAll(false)}
+      onMouseUp={() => setClick(false)}
+      onMouseDown={() => setClick(true)}
+      onClick={() => props.onClick()}
+    >
+      {props.children}
+    </button>
+  );
 }
+
 Button.defaultProps = {
-  width: basic.size.width,
-  height: basic.size.height,
-  color: "primary",
-  theme: basic,
+  width: "250px",
+  height: "50px",
+  backgroundColor: "red",
   elevation: 2,
   variant: "default",
-  type: "default"
+  type: "default",
+  onClick: function () { return null }
 };
-Button.propTypes = {
-  width: PropTypes.string,
-  height: PropTypes.string,
-  color: PropTypes.string,
-  onClick: PropTypes.func,
-  children: PropTypes.string,
-  theme: PropTypes.object,
-  elevation: PropTypes.number,
-  variant: PropTypes.oneOf(["contained", "default"]),
-  type: PropTypes.oneOf(["default", "rounded", "icon"]),
-};
-
-export default Button;

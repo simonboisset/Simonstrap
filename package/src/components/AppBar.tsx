@@ -9,7 +9,7 @@ interface Props {
 
 export default function AppBar(props: Props) {
   return (
-    <Div height="60px" backgroundColor="red" color="white" width="100%" gap="50px" direction="row" padding="20px">
+    <Div elevation={3} height="60px" backgroundColor="red" color="white" width="100%" gap="50px" direction="row" padding="20px">
       {props.children}
     </Div>
   );
