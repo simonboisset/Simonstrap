@@ -1,17 +1,17 @@
-const path = require("path")
-
-// Require the new plugin
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-
+const path = require("path");
 module.exports = {
-  entry: "./src/index.tsx",
-  devtool: "source-map",
+  entry: "./src/index.ts",
+  mode: 'production',
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: [".ts", ".tsx", ".js"]
   },
   output: {
-    path: path.join(__dirname, "/build"),
-    filename: "index_bundle.js"
+    path: path.join(__dirname, './'),
+    filename: 'index.js',
+    library: "simonstrap",
+    libraryTarget: 'umd',
+    publicPath: "/",
+    umdNamedDefine: true
   },
   module: {
     rules: [
@@ -41,10 +41,5 @@ module.exports = {
         ]
       }
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({      // Instancie le plugin
-      template: "./src/index.html"  // Spécifie notre template
-    })
-  ]
+  }
 }

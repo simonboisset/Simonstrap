@@ -1,4 +1,4 @@
-// import "./components/style.css";
+// import "./components/styles/style.css";
 import AppBar from './components/AppBar';
 import AppContainer from "./components/AppContainer";
 // import {basic} from './themes/basic';
