@@ -7,7 +7,7 @@ export default function App(props: any) {
       body={<Card width="60%">
         Body
         <Progress value={80} />
-        <Button>Click</Button>
+        <Button icon>home</Button>
       </Card>}
       footer={<Div backgroundColor="green">Footer</Div>}
     />

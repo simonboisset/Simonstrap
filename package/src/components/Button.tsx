@@ -7,6 +7,8 @@ export interface Props {
   onClick: Function,
   children: string,
   elevation: number,
+  rounded: boolean,
+  icon: boolean,
   variant: "contained" | "default",
   type: "default" | "rounded" | "icon",
   style: React.CSSProperties
@@ -14,14 +16,18 @@ export interface Props {
 
 export default function Button(props: Props) {
   const style: React.CSSProperties = {
-    width: props.width,
-    height: props.height,
-    color: "white",
     backgroundColor: props.backgroundColor,
     ...props.style
   }
+  let className = "simonButton";
+  if (props.rounded) {
+    className += " rounded";
+  }
+  if (props.icon) {
+    className += " circle";
+  }
   return (
-    <button style={style} className="simonButton"
+    <button style={style} className={className}
       onClick={() => props.onClick()}
     >
       {props.children}

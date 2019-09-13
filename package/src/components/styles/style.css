@@ -4,9 +4,9 @@
   font-family: 'Roboto';
   box-sizing: border-box;
 }
-* ::-webkit-scrollbar {
+/* * ::-webkit-scrollbar {
   display: none;
-}
+} */
 /* * ::-webkit-scrollbar-track{
   width:4px;
   border-radius: 2px;

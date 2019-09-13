@@ -26,7 +26,6 @@ export default function Div(props: Props) {
     const style: React.CSSProperties = {
         display: "flex",
         top:"0",
-        fontFamily: "Roboto",
         borderRadius:props.borderRadius,
         boxShadow:`0 ${props.elevation}px ${2*props.elevation}px rgba(0,0,0,0.${8*props.elevation})`,
         flexDirection: props.direction,
