@@ -1,0 +1,36 @@
+name: CI/CD
+on:
+  push:
+    branches:
+      - dev
+      - master
+    paths:
+      - 'server/**'
+      - 'package/**'
+      - 'simon-ui/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: marceloprado/has-changed-path@master
+        id: changed-package
+        with:
+          paths: simon-ui
+      - uses: marceloprado/has-changed-path@master
+        id: changed-web
+        with:
+          paths: web
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+        if: steps.changed-package.outputs.changed == 'true' && github.ref == 'refs/heads/master'
+      - run: |
+          cd simon-ui
+          yarn
+          yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
