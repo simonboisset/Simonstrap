@@ -1,10 +1,10 @@
 import React from "react";
-import { AppBar } from "simon-ui";
+import { AppBar, IconButton } from "simon-ui";
 import "./App.css";
 function App() {
   return (
     <div className="App">
-      <AppBar title="Simon UI" />
+      <AppBar leftElements={<IconButton>home</IconButton>} title="Simon UI" />
     </div>
   );
 }
