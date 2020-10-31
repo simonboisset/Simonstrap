@@ -41,6 +41,9 @@ jobs:
           cd ../web
           yarn add simon-ui --latest
           cd ..
+          git config --local user.email "secrets.GIT_EMAIL"
+          git config --local user.name "Simon"
+          git add .
           git commit -m "New version [skip ci]"
           git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git dev
           
