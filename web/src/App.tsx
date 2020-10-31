@@ -7,7 +7,7 @@ function App() {
       <AppBar
         leftElements={<IconButton>menu</IconButton>}
         rigthElements={<IconButton>home</IconButton>}
-        title="Simon UI"
+        title="Simon UI v0"
       />
     </div>
   );
