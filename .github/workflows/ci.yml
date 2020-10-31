@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
       - uses: marceloprado/has-changed-path@master
         id: changed-package
@@ -34,5 +35,10 @@ jobs:
         run: |
           cd simon-ui
           yarn
-          yarn publish dist
+          yarn version --new-version patch --no-git-tag-version
+          yarn build
+          yarn publish
+          git commit -m "New version [skip ci]"
+          git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git master
+
         
