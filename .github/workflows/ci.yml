@@ -38,7 +38,11 @@ jobs:
           yarn version --new-version patch --no-git-tag-version
           yarn build
           yarn publish
+          cd ../web
+          yarn add simon-ui --latest
+          cd ..
           git commit -m "New version [skip ci]"
-          git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git master
+          git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git dev
+          
 
         

@@ -19,7 +19,8 @@
     "analyze": "size-limit --why"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   },
   "husky": {
     "hooks": {
@@ -27,10 +28,9 @@
     }
   },
   "prettier": {
-    "printWidth": 80,
-    "semi": true,
     "singleQuote": true,
-    "trailingComma": "es5"
+    "tabWidth": 2,
+    "printWidth": 120
   },
   "name": "simon-ui",
   "author": "Simon Boisset",
@@ -51,8 +51,8 @@
     "@types/react": "^16.9.55",
     "@types/react-dom": "^16.9.9",
     "husky": "^4.3.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "size-limit": "^4.7.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.0.3",
