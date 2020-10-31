@@ -34,5 +34,5 @@ jobs:
         run: |
           cd simon-ui
           yarn
-          yarn publish
+          yarn publish dist
         
