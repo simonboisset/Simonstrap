@@ -46,7 +46,9 @@ jobs:
           git add .
           git commit -m "New version [skip ci]"
           git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git master
+          git branch
           git rebase master dev
+          git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git dev
           
 
         
