@@ -32,9 +32,10 @@ jobs:
           git add .
           git commit -m "New version [skip ci]"
           git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git master
-          git rebase master dev 
+          git rebase master remotes/origin/dev
+          git add .
           git commit -m "Rebase Master [skip ci]"
-          git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git dev
+          git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git remotes/origin/dev
           
 
         
