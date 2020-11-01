@@ -36,4 +36,5 @@ jobs:
         if: github.ref == 'refs/heads/master'
         run: |
           git rebase remotes/origin/master
+          git fetch
           git push
