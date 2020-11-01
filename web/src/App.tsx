@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, IconButton } from "simon-ui";
+import { AppBar, IconButton, Page } from "simon-ui";
 import "./App.css";
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
         rigthElements={<IconButton>home</IconButton>}
         title="Simon UI v2"
       />
+      <Page></Page>
     </div>
   );
 }
