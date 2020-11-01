@@ -19,8 +19,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
-          git fetch --all
-          git branch
           cd simon-ui
           yarn
           yarn version --new-version patch --no-git-tag-version
@@ -32,14 +30,15 @@ jobs:
         with:
           fetch-depth: 0
       - run: |
+          git branch
           git config --local user.email "secrets.GIT_EMAIL"
           git config --local user.name "Simon"
           git add .
           git commit -m "New version [skip ci]"
-          git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git master
+          git push
           git rebase master dev
           git commit -m "Rebase Master [skip ci]"
-          git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git dev
+          git push
           
 
         
