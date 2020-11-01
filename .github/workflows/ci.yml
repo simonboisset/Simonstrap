@@ -5,13 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
-      - uses: actions/checkout@v2
       - name: Checkout master
+        uses: actions/checkout@v2
+      - name: Use Node
         uses: actions/setup-node@v1
         with:
           node-version: "14"
           registry-url: https://registry.npmjs.org/
-      - name: Publish
+      - name: Publish New Version
         if: github.ref == 'refs/heads/master'
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
@@ -28,12 +29,13 @@ jobs:
           git add .
           git commit -m "New version"
           git push
-      - uses: actions/checkout@v2
+      - name: Checkout dev
+        uses: actions/checkout@v2
         if: github.ref == 'refs/heads/master'
         with:
           ref: 'dev'
-          fetch-depth: '2'
-      - name: Push
+          fetch-depth: '0'
+      - name: Rebase Dev
         if: github.ref == 'refs/heads/master'
         run: |
           git rebase remotes/origin/master
