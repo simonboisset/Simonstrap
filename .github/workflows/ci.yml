@@ -28,12 +28,15 @@ jobs:
           cd ../web
           yarn add simon-ui --latest
           cd ..
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+        run: |
           git config --local user.email "secrets.GIT_EMAIL"
           git config --local user.name "Simon"
           git add .
           git commit -m "New version [skip ci]"
           git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git master
-          git branch
           git rebase master dev
           git commit -m "Rebase Master [skip ci]"
           git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git dev
