@@ -11,9 +11,9 @@ export const AppBar: React.FC<{
     <AppBarMUI position="fixed" className={classes.appBar}>
       <Toolbar>
         {leftElements}
-        <Typography variant="h6" className={classes.title}>
-          {title}
-        </Typography>
+        <div className={classes.title}>
+          <Typography variant="h6">{title}</Typography>
+        </div>
         {rigthElements}
       </Toolbar>
     </AppBarMUI>
