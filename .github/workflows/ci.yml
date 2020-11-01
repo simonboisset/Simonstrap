@@ -19,7 +19,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
-          git branch
+          git branch --all
           cd simon-ui
           yarn
           yarn version --new-version patch --no-git-tag-version
