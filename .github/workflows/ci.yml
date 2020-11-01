@@ -30,10 +30,10 @@ jobs:
           git add .
           git commit -m "New version"
           git push
-          git checkout remotes/origin/dev
-          git rebase master
-          git fetch
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
+          ref: 'dev'
+        run: |
+          git rebase remotes/origin/master
           git push
-          
-
-        
