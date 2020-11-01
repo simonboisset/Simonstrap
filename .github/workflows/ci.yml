@@ -19,6 +19,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
+          git fetch --all
           git branch
           cd simon-ui
           yarn
