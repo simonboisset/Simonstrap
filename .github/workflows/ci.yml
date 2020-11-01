@@ -7,7 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          clean: 'false'
           fetch-depth: '0'
       - name: Checkout master
         uses: actions/setup-node@v1
