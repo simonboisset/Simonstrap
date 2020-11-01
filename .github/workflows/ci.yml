@@ -6,6 +6,8 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Checkout master
         uses: actions/setup-node@v1
         with:
@@ -21,7 +23,6 @@ jobs:
           cd simon-ui
           yarn
           yarn version --new-version patch --no-git-tag-version
-          yarn build
           yarn publish
           cd ../web
           yarn add simon-ui --latest
