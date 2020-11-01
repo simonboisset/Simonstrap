@@ -32,9 +32,9 @@ jobs:
         if: github.ref == 'refs/heads/master'
         with:
           ref: 'dev'
+          fetch-depth: '0'
       - name: Push
         if: github.ref == 'refs/heads/master'
         run: |
           git rebase remotes/origin/master
-          git fetch
           git push
