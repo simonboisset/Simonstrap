@@ -31,9 +31,10 @@ jobs:
           git commit -m "New version"
           git push
       - uses: actions/checkout@v2
+        if: github.ref == 'refs/heads/master'
         with:
           fetch-depth: '0'
           ref: 'dev'
-        run: |
+      - run: |
           git rebase remotes/origin/master
           git push
