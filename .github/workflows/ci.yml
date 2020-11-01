@@ -7,8 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: 'dev'
-          fetch-depth: 0
+          clean: 'false'
+          fetch-depth: '0'
       - name: Checkout master
         uses: actions/setup-node@v1
         with:
@@ -32,7 +32,7 @@ jobs:
           git add .
           git commit -m "New version [skip ci]"
           git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git master
-          git rebase master dev
+          git rebase master dev 
           git commit -m "Rebase Master [skip ci]"
           git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git dev
           
