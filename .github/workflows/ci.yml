@@ -7,18 +7,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
+          ref: 'dev'
           fetch-depth: 0
       - name: Checkout master
         uses: actions/setup-node@v1
         with:
           node-version: "14"
           registry-url: https://registry.npmjs.org/
-          ref: 'dev'
       - name: Publish
         if: github.ref == 'refs/heads/master'
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
+          git branch
           cd simon-ui
           yarn
           yarn version --new-version patch --no-git-tag-version
@@ -26,19 +27,14 @@ jobs:
           cd ../web
           yarn add simon-ui --latest
           cd ..
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - run: |
-          git branch
           git config --local user.email "secrets.GIT_EMAIL"
           git config --local user.name "Simon"
           git add .
           git commit -m "New version [skip ci]"
-          git push
+          git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git master
           git rebase master dev
           git commit -m "Rebase Master [skip ci]"
-          git push
+          git push https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git dev
           
 
         
