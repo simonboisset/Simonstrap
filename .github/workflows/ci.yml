@@ -30,7 +30,8 @@ jobs:
           git add .
           git commit -m "New version"
           git push
-          git rebase master remotes/origin/dev
+          git checkout remotes/origin/dev
+          git rebase master
           git fetch
           git push
           
