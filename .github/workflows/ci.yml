@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: "14"
           registry-url: https://registry.npmjs.org/
+          ref: 'dev'
       - name: Publish
         if: github.ref == 'refs/heads/master'
         env:
