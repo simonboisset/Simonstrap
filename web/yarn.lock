@@ -9988,10 +9988,10 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
-simon-ui@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/simon-ui/-/simon-ui-0.1.5.tgz#87fa8bb8d4d650175891503355547b915e3ada85"
-  integrity sha512-leayLP0pPN7F3kN8GZ1T04AwBbUGvOC2c0IN2Z3Z64wHjgZcdmewHDgn9zjOiJYPRJjGfshFV22q7LKJOlKfmg==
+simon-ui@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/simon-ui/-/simon-ui-0.1.6.tgz#0846946957d04cdc08b4a761296c662ff5c4e94b"
+  integrity sha512-b9HyMSrH1/RKAXatkGPrwtkTli66PBN+IwS0RdMMATetskuhGjMGVJyBn81yauTVfo79qtDsaezbCDGgXcdU/g==
   dependencies:
     "@material-ui/core" "^4.11.0"
     react-hook-form "^6.9.6"
