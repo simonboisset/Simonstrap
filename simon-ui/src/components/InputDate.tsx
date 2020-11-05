@@ -1,5 +1,6 @@
+import DayjsUtils from '@date-io/dayjs';
 import { Grid } from '@material-ui/core';
-import { DatePicker } from '@material-ui/pickers';
+import { KeyboardDatePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
 import React from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 
@@ -16,13 +17,15 @@ export const InputDate: React.FC<{
     <Grid item xs={xs ? xs : 12}>
       <Controller
         render={(props) => (
-          <DatePicker
-            label={label}
-            inputVariant="outlined"
-            value={props.value}
-            onChange={props.onChange}
-            error={!!errors[name]}
-          />
+          <MuiPickersUtilsProvider utils={DayjsUtils}>
+            <KeyboardDatePicker
+              label={label}
+              inputVariant="outlined"
+              value={props.value}
+              onChange={props.onChange}
+              error={!!errors[name]}
+            />
+          </MuiPickersUtilsProvider>
         )}
         name={name}
         control={control}
