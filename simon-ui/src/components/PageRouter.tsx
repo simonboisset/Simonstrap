@@ -1,6 +1,5 @@
 import React from 'react';
-import { Router } from '../router/components/Router';
-import { Route } from '../router/types/Route';
+import { Route, Router } from 'react-router-url';
 import { Page } from './Page';
 
 export const PageRouter = ({
