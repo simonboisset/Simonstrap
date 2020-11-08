@@ -21,8 +21,6 @@ jobs:
           yarn
           yarn version --new-version patch --no-git-tag-version
           yarn publish
-          cd ../web
-          yarn add simon-ui --latest
           cd ..
           git config --local user.email "simonboisset.dev@gmail.com"
           git config --local user.name "simonboisset"
