@@ -1,5 +1,24 @@
 import * as yup from 'yup';
-export { DialogActions, DialogContent, DialogTitle, Divider } from '@material-ui/core';
+export {
+  Avatar,
+  Badge,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardHeader,
+  Chip,
+  CircularProgress,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Divider,
+  LinearProgress,
+  Paper,
+  Snackbar,
+  Tab,
+  Tabs,
+} from '@material-ui/core';
 export { useFormContext, useWatch } from 'react-hook-form';
 export { history, Redirect, Route, Router, useURL } from 'react-router-url';
 export * from './components/AppBar';

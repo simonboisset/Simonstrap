@@ -40,6 +40,15 @@
   "name": "simon-ui",
   "author": "Simon Boisset",
   "module": "dist/simon-ui.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/simonboisset/simon-ui",
+    "directory": "simon-ui"
+  },
+  "bugs": {
+    "url": "https://github.com/simonboisset/simon-ui/issues"
+  },
+  "homepage": "https://github.com/simonboisset/simon-ui/tree/master/simon-ui",
   "size-limit": [
     {
       "path": "dist/simon-ui.cjs.production.min.js",

@@ -37,8 +37,11 @@ const pets = [
 
 export const FormPage = () => {
   const methods = useForm(FormSchema);
+
+  const handleSubmit = (data: FormData) => {};
+
   return (
-    <Form methods={methods} onSubmit={() => {}}>
+    <Form methods={methods} onSubmit={handleSubmit}>
       <Container>
         <Text variant="h3">Formulaire</Text>
         <InputText name="name" label="Name" xs={8} />
