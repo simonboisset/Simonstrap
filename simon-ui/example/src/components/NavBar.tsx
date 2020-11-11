@@ -3,7 +3,7 @@ import { Divider, Drawer, ItemLink } from 'simon-ui';
 
 export const NavBar = () => {
   return (
-    <Drawer variant="permanent">
+    <Drawer>
       <ItemLink icon="home" to="/">
         Home
       </ItemLink>
