@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { AppBar } from 'simon-ui';
+import { AppBar, IconButton, useDrawer } from 'simon-ui';
 export const Header = () => {
-  return <AppBar title="Simon UI" />;
+  const { toogleDrawer } = useDrawer();
+  return <AppBar title="Simon UI" leftElements={<IconButton onClick={toogleDrawer}>menu</IconButton>} />;
 };
