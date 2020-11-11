@@ -1,15 +1,21 @@
-import { AppBar as AppBarMUI, makeStyles, Toolbar, Typography } from '@material-ui/core';
+import { AppBar as AppBarMUI, makeStyles, Theme, Toolbar, Typography } from '@material-ui/core';
 import React from 'react';
+import { classNames } from '../utils/classNames';
+import { useDrawer } from './SimonProvider';
 
-export const AppBar: React.FC<{
+type AppBarProps = {
   title?: string;
   leftElements?: React.ReactNode;
   rigthElements?: React.ReactNode;
-}> = ({ title, leftElements, rigthElements }) => {
-  const classes = useStyles();
+  className?: string;
+};
+
+export const AppBar = ({ title, leftElements, rigthElements, className }: AppBarProps) => {
+  const { z } = useDrawer();
+  const classes = useStyles({ z });
   return (
     <>
-      <AppBarMUI position="fixed" className={classes.appBar}>
+      <AppBarMUI position="fixed" className={classNames([className, classes.appBar])}>
         <Toolbar>
           {leftElements}
           <Typography className={classes.title} variant="h6">
@@ -22,11 +28,11 @@ export const AppBar: React.FC<{
     </>
   );
 };
-const useStyles = makeStyles(({ zIndex }) => ({
+const useStyles = makeStyles<Theme, { z?: 'on' | 'under' }, 'title' | 'appBar'>(({ zIndex }) => ({
   title: {
     flexGrow: 1,
   },
   appBar: {
-    zIndex: zIndex.drawer + 1,
+    zIndex: (props) => (props.z && props.z === 'on' ? zIndex.drawer - 1 : zIndex.drawer + 1),
   },
 }));

@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core';
+import { css } from 'emotion';
 import React from 'react';
-import { drawerWidth } from './Drawer';
+import { useDrawer } from './SimonProvider';
 
 export const Page = ({
   header,
@@ -11,21 +11,20 @@ export const Page = ({
   drawer?: JSX.Element;
   children: React.ReactNode;
 }) => {
-  const classes = useStyles();
+  const { width } = useDrawer();
   return (
     <>
       {header}
       {drawer}
-      <div className={classes.page}>{children}</div>
+      <div className={pageStyle(width)}>{children}</div>
     </>
   );
 };
 
-const useStyles = makeStyles(({ spacing }) => ({
-  page: {
-    marginLeft: drawerWidth + spacing(2),
-    marginBottom: spacing(2),
-    marginTop: spacing(2),
-    marginRight: spacing(2),
-  },
-}));
+const pageStyle = (width: number) =>
+  css({
+    marginLeft: width + 16,
+    marginBottom: 16,
+    marginTop: 16,
+    marginRight: 16,
+  });

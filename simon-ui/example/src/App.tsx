@@ -15,6 +15,7 @@ const theme: Theme = {
       main: '#e57373',
     },
   },
+  components: { drawer: { variant: 'persistent', z: 'under' } },
 };
 
 function App() {

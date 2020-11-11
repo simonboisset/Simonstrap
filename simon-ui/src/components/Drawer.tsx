@@ -1,21 +1,27 @@
-import { Drawer as DrawerUI, DrawerProps, List, makeStyles, Toolbar } from '@material-ui/core';
+import { Drawer as DrawerUI, List, Toolbar } from '@material-ui/core';
+import { css } from 'emotion';
 import React from 'react';
+import { Child } from './Component';
+import { useDrawer } from './SimonProvider';
 
-export const drawerWidth = 300;
+type DrawerProps = {
+  children?: Child;
+  className?: string;
+};
 
-export const Drawer: React.FC<DrawerProps> = ({ children, ...props }) => {
-  const classes = useStyles();
+export const Drawer = ({ children, ...props }: DrawerProps) => {
+  const { open, closeDrawer, variant, position, width } = useDrawer();
   return (
-    <DrawerUI {...props}>
+    <DrawerUI {...props} open={open} onClose={closeDrawer} variant={variant} anchor={position}>
       <Toolbar />
-      <List component="nav" className={classes.drawer}>
+      <List component="nav" className={listStyle(width)}>
         {children}
       </List>
     </DrawerUI>
   );
 };
-const useStyles = makeStyles(() => ({
-  drawer: {
-    width: drawerWidth,
-  },
-}));
+
+const listStyle = (width: number) =>
+  css({
+    width,
+  });
