@@ -13,7 +13,7 @@ jobs:
           node-version: "14"
           registry-url: https://registry.npmjs.org/
       - name: Publish New Major Version
-        if: github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '[major]')'
+        if: github.ref == 'refs/heads/master' && contains(github.event.head_commit.message, '[major]')'
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
@@ -28,7 +28,7 @@ jobs:
           git commit -m "New version"
           git push
       - name: Publish New Minor Version
-        if: github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '[minor]')'
+        if: github.ref == 'refs/heads/master' && contains(github.event.head_commit.message, '[minor]')'
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
@@ -43,7 +43,7 @@ jobs:
           git commit -m "New version"
           git push
       - name: Publish New Minor Version
-        if: github.ref == 'refs/heads/main' && !contains(github.event.head_commit.message, '[major]') && !contains(github.event.head_commit.message, '[minor]')
+        if: github.ref == 'refs/heads/master' && !contains(github.event.head_commit.message, '[major]') && !contains(github.event.head_commit.message, '[minor]')
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         run: |
