@@ -12,6 +12,12 @@ jobs:
         with:
           node-version: "14"
           registry-url: https://registry.npmjs.org/
+      - name: Copy source
+        if: github.ref == 'refs/heads/master'
+        run: |
+          rm -r ./simon-ui/src/
+          cp -r ./exemple/src/simon-ui ./simon-ui/
+          mv ./simon-ui/simon-ui ./simon-ui/src/
       - name: Publish New Major Version
         if: github.ref == 'refs/heads/master' && contains(github.event.head_commit.message, '[major]')
         env:
@@ -42,7 +48,7 @@ jobs:
           git add .
           git commit -m "New version"
           git push
-      - name: Publish New Minor Version
+      - name: Publish New Patch Version
         if: github.ref == 'refs/heads/master' && !contains(github.event.head_commit.message, '[major]') && !contains(github.event.head_commit.message, '[minor]')
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
