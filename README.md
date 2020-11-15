@@ -107,14 +107,11 @@ const pets = [
   { label: "Bird", name: "bird" },
 ];
 export const FormPage = () => {
-    const methods = useForm(FormSchema);
-
-    const handleSubmit =(data)=>{
-    ...
-    }
-    return (
+  const methods = useForm(FormSchema);
+  const handleSubmit = (data) => {...};
+  return (
     <Form methods={methods} onSubmit={handleSubmit}>
-        <Container>
+      <Container>
         <Text variant="h3">Formulaire</Text>
         <InputText name="name" label="Name" xs={8} />
         <InputText name="age" label="Age" xs={4} />
@@ -125,12 +122,12 @@ export const FormPage = () => {
         <InputCheckBox name="pets" label="Pets" items={pets} />
         <InputSwitch name="on" label="On" />
         <Button variant="contained" color="secondary" xs={6}>
-            Cancel
+          Cancel
         </Button>
         <Button variant="contained" type="submit" color="primary" xs={6}>
-            Submit
+          Submit
         </Button>
-        </Container>
+      </Container>
     </Form>
   );
 };
