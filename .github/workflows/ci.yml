@@ -71,10 +71,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: 'dev'
-          fetch-depth: 100
       - name: Rebase Dev
         run: |
           git config --local user.email "simonboisset.dev@gmail.com"
           git config --local user.name "simonboisset"
+          git pull origin master
           git rebase remotes/origin/master
           git push
