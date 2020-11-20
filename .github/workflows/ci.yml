@@ -74,3 +74,19 @@ jobs:
         run: |
           git rebase remotes/origin/master
           git push
+  rebase:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout dev
+        uses: actions/checkout@v2
+        with:
+          ref: 'dev'
+          fetch-depth: '0'
+      - name: Rebase Dev
+        run: |
+          git config --local user.email "simonboisset.dev@gmail.com"
+          git config --local user.name "simonboisset"
+          git pul origin master
+          git rebase remotes/origin/master
+          git push
