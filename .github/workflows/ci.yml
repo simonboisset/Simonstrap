@@ -62,17 +62,6 @@ jobs:
           git add .
           git commit -m "New version"
           git push
-      - name: Checkout dev
-        uses: actions/checkout@v2
-        if: github.ref == 'refs/heads/master'
-        with:
-          ref: 'dev'
-          fetch-depth: '0'
-      - name: Rebase Dev
-        if: github.ref == 'refs/heads/master'
-        run: |
-          git rebase remotes/origin/master
-          git push
   rebase:
     needs: build
     if: github.ref == 'refs/heads/master'
@@ -82,7 +71,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: 'dev'
-          fetch-depth: '0'
+          fetch-depth: 100
       - name: Rebase Dev
         run: |
           git config --local user.email "simonboisset.dev@gmail.com"
