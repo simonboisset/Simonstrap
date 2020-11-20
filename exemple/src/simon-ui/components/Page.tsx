@@ -22,7 +22,7 @@ export const Page = ({
   );
 };
 
-const pageStyle = (width: number, position?: DrawerPosition, marge?: boolean) => {
+const pageStyle = (width: number, position: DrawerPosition = 'left', marge?: boolean) => {
   return css({
     marginLeft: position === 'left' && marge ? width + 16 : 16,
     marginBottom: position === 'bottom' && marge ? width + 16 : 16,
