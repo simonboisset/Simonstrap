@@ -3,7 +3,6 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
       - name: Checkout master
         uses: actions/checkout@v2
@@ -75,6 +74,7 @@ jobs:
           git rebase remotes/origin/master
           git push
   rebase:
+    needs: build
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
@@ -87,6 +87,6 @@ jobs:
         run: |
           git config --local user.email "simonboisset.dev@gmail.com"
           git config --local user.name "simonboisset"
-          git pul origin master
+          git pull origin master
           git rebase remotes/origin/master
           git push
