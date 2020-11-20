@@ -19,7 +19,7 @@ export {
   Tabs,
 } from '@material-ui/core';
 export { useFormContext, useWatch } from 'react-hook-form';
-export { history, Redirect, Route, Router, useURL } from 'react-router-url';
+export { history, Redirect, Router, useURL } from 'react-router-url';
 export * from './components/AppBar';
 export * from './components/Button';
 export * from './components/Container';
