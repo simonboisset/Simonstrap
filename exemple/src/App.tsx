@@ -34,6 +34,7 @@ function App() {
         routes={[
           {
             path: '/',
+            exact: true,
             component: <Text variant="h3">Simon UI</Text>,
             routes: [
               { path: '/redirect', component: <Redirect to="/" /> },

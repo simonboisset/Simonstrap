@@ -14,17 +14,7 @@ type MenuPropsType = Omit<MenuProps, 'children' | 'open'> & {
   edge?: 'start' | 'end';
 };
 
-export default function Menu({
-  onOpen,
-  onClose,
-  label,
-  items,
-  icon,
-  anchorEl,
-  edge,
-  endIcon,
-  ...props
-}: MenuPropsType) {
+export function Menu({ onOpen, onClose, label, items, icon, anchorEl, edge, endIcon, ...props }: MenuPropsType) {
   const handleClickItem = (onClick: () => void) => {
     onClick();
     onClose();
