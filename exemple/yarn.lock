@@ -9372,10 +9372,10 @@ react-refresh@^0.8.3:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
-react-router-url@^0.2.9:
-  version "0.2.9"
-  resolved "https://registry.yarnpkg.com/react-router-url/-/react-router-url-0.2.9.tgz#660c90b9fd7032a0be9c747c033b2705eb4ea642"
-  integrity sha512-UjfQF9BYL0k6VlCAbAW7S58wYzlPgPbuROKIWlvaB5amqotPi6B58zHpJzmxo73EqJXMQ+Yci2uxjXmlHluBEQ==
+react-router-url@^0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/react-router-url/-/react-router-url-0.3.3.tgz#28cb167a7040641d207e830f0d09ad9c2d8f45bb"
+  integrity sha512-w1q7v9oRee6KHQMxj1YKL6O5NZxJ2V1sc+bR8w0ivXE5T0O0W0dMEsKCsIOuTUZXGGaclmoJV2lODPIu+TwYkA==
 
 react-scripts@4.0.0:
   version "4.0.0"

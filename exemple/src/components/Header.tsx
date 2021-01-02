@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { AppBar, useDrawer } from '../simon-ui';
-import Menu, { useMenu } from '../simon-ui/components/Menu';
+import { AppBar, Menu, useDrawer, useMenu } from '../simon-ui';
 export const Header = () => {
   const { toogleDrawer } = useDrawer();
   const menu = useMenu();
